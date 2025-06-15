@@ -1,0 +1,16 @@
+.content {
+  flex-grow: 1;
+  padding: 2rem;
+  margin-left: 300px;
+  transition: margin-left 0.3s ease;
+}
+
+body.focus-mode-active .sidebar {
+  transform: translateX(-100%);
+}
+
+body.focus-mode-active .content {
+  margin-left: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}

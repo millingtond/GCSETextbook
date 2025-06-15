@@ -1,0 +1,38 @@
+[
+    {
+        "slug": "stored-program-concept",
+        "title": "Stored program concept",
+        "content": "Instructions and data are both stored within memory during execution.\n\nVon Neumann architecture uses stored program concept - both the Instructions and data are stored in the same memory system.",
+        "section": "1",
+        "subsection": "1.1 System architecture",
+        "craigAndDaveVideoId": "ERINv5nL-QQ",
+        "notionPageUrl": "https://www.notion.so/placeholder"
+    },
+    {
+        "slug": "von-neumann-architecture",
+        "title": "Von Neumann Architecture",
+        "content": "A computer architecture where instructions and data are stored in the same memory location.\nIt consists of a CPU, memory, and input/output devices.",
+        "section": "1",
+        "subsection": "1.1 System architecture",
+        "craigAndDaveVideoId": "KBmoqwVt4Qg",
+        "notionPageUrl": "https://www.notion.so/placeholder"
+    },
+    {
+        "slug": "ram-and-rom",
+        "title": "RAM and ROM",
+        "content": "RAM (Random Access Memory): Volatile memory used to store programs and data currently in use. Its contents are lost when the power is off.\nROM (Read-Only Memory): Non-volatile memory that stores the bootstrap instructions (BIOS). Its contents cannot be easily changed.",
+        "section": "1",
+        "subsection": "1.2 Memory and storage",
+        "craigAndDaveVideoId": "Hqu1S_1321U",
+        "notionPageUrl": "https://www.notion.so/placeholder"
+    },
+    {
+        "slug": "for-loop",
+        "title": "FOR loop",
+        "content": "A count-controlled loop that iterates a set number of times.\n\nExample:\nFOR i = 1 TO 10\n  PRINT i\nNEXT i",
+        "section": "2",
+        "subsection": "2.2 Programming fundamentals",
+        "craigAndDaveVideoId": "BplC42s5I_s",
+        "notionPageUrl": "https://www.notion.so/placeholder"
+    }
+]

@@ -1,0 +1,29 @@
+.help-banner {
+    padding: 1rem 1.5rem;
+    margin-top: 2rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--focus-color);
+}
+.light-theme .help-banner { background-color: #eef5ff; }
+.dark-theme .help-banner { background-color: #34495e; }
+
+
+.help-banner h4 {
+    margin: 0 0 0.5rem 0;
+}
+
+.help-banner ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.help-banner a {
+    text-decoration: none;
+    font-weight: 500;
+}
+.light-theme .help-banner a { color: var(--accent-color); }
+.dark-theme .help-banner a { color: #5dade2; }
