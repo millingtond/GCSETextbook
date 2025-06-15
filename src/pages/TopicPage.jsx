@@ -8,13 +8,35 @@ import { useSelector } from 'react-redux';
 import './TopicPage.css';
 
 const renderContent = (content) => {
+  const elements = [];
   const lines = content.split('\\n').filter(line => line.trim() !== '');
-  return lines.map((line, index) => {
-    if (line.trim().startsWith('•') || line.trim().startsWith('-')) {
-      return <li key={index}>{line.trim().substring(1).trim()}</li>;
+  let currentListItems = [];
+
+  lines.forEach((line, index) => {
+    const trimmedLine = line.trim();
+    if (trimmedLine.startsWith('•') || trimmedLine.startsWith('-')) {
+      currentListItems.push(
+        <li key={`item-${index}`}>{trimmedLine.substring(1).trim()}</li>
+      );
+    } else {
+      if (currentListItems.length > 0) {
+        elements.push(
+          <ul key={`list-${elements.length}`}>{currentListItems}</ul>
+        );
+        currentListItems = [];
+      }
+      elements.push(<p key={`para-${elements.length}`}>{trimmedLine}</p>);
     }
-    return <p key={index}>{line}</p>;
   });
+
+  // If the content ends with a list
+  if (currentListItems.length > 0) {
+    elements.push(
+      <ul key={`list-${elements.length}`}>{currentListItems}</ul>
+    );
+  }
+
+  return elements;
 };
 
 function TopicPage({ setFocusMode }) {

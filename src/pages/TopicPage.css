@@ -36,9 +36,33 @@
 }
 .dark-theme .topic-divider { background-color: var(--border-dark); }
 
-.content-body p, .content-body li {
+/* Increase specificity by including .topic-container */
+.topic-container .content-body p,
+.topic-container .content-body li {
   font-size: 1.1rem;
   line-height: 1.7;
+}
+
+.topic-container .content-body p {
+  margin-bottom: 1em; /* Adds space after paragraphs */
+  /* Test: Add a very obvious style */
+  /* background-color: yellow !important; */
+}
+
+.topic-container .content-body ul {
+  display: block; /* Ensure it behaves as a block for lists */
+  list-style-type: disc !important; /* Standard disc bullets, !important to override resets */
+  list-style-position: outside; /* Bullets outside the text flow */
+  padding-left: 20px; /* Indentation for the list */
+  margin-bottom: 1em; /* Space after the entire list block */
+  /* Test: Add a very obvious style */
+  /* background-color: lightblue !important; */
+}
+.topic-container .content-body li {
+  display: list-item !important; /* Ensure it behaves as a list item for bullets */
+  margin-bottom: 0.5em; /* Space between individual list items */
+  /* Test: Add a very obvious style */
+  /* background-color: lightgreen !important; */
 }
 
 .resource-section {
