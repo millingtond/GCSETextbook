@@ -12,21 +12,25 @@
 }
 .dark-theme .pyodide-runner h4 { border-bottom: 1px solid var(--border-dark); }
 
-
 .editor-container {
     position: relative;
 }
 
 .code-editor {
     min-height: 150px;
-    background-color: #272822; /* Matches prism-okaidia theme */
+    background-color: #272822;
     color: #f8f8f2;
 }
 
-.copy-code-btn {
+.editor-controls {
     position: absolute;
     top: 10px;
     right: 10px;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.copy-code-btn, .reset-code-btn {
     background: #555;
     color: white;
     border: none;
@@ -35,9 +39,10 @@
     padding: 0.3rem 0.6rem;
     opacity: 0.7;
     transition: opacity 0.2s;
+    font-size: 1rem;
 }
 
-.copy-code-btn:hover {
+.copy-code-btn:hover, .reset-code-btn:hover {
     opacity: 1;
 }
 
@@ -56,7 +61,6 @@
 .run-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .run-btn:hover:not(:disabled) { opacity: 0.9; }
 
-
 .output-container {
   padding: 0.5rem 1rem;
   min-height: 50px;
@@ -66,3 +70,32 @@
 }
 .light-theme .output-container { background-color: #fbfbfb; }
 .dark-theme .output-container { background-color: #2c3e50; }
+
+/* Error state */
+.pyodide-runner.error-state .error-message {
+  padding: 2rem;
+  text-align: center;
+  background-color: #fee;
+  color: #c00;
+  border-radius: 4px;
+  margin: 1rem;
+}
+
+.dark-theme .pyodide-runner.error-state .error-message {
+  background-color: #4a2020;
+  color: #ff6b6b;
+}
+
+.retry-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.retry-btn:hover {
+  background: #0056b3;
+}

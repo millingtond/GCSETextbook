@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Editor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-python';
-import 'prismjs/themes/prism-okaidia.css'; // A nice dark theme for the editor
+import 'prismjs/themes/prism-okaidia.css';
+import { PYODIDE_CONFIG } from '../utils/constants';
 import './PyodideRunner.css';
 
 const initialCode = `
@@ -21,48 +22,137 @@ function PyodideRunner() {
   const [output, setOutput] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [pyodide, setPyodide] = useState(null);
+  const [isRunning, setIsRunning] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    let isMounted = true;
+
     async function setupPyodide() {
       try {
-        const pyodideInstance = await window.loadPyodide();
-        setPyodide(pyodideInstance);
+        if (!window.loadPyodide) {
+          throw new Error('Pyodide loader not found. Please check your internet connection.');
+        }
+
+        const pyodideInstance = await window.loadPyodide(PYODIDE_CONFIG);
+        
+        if (isMounted) {
+          setPyodide(pyodideInstance);
+          setIsLoading(false);
+          setError(null);
+        }
       } catch (error) {
         console.error("Failed to load Pyodide:", error);
-        setOutput("Error: Could not initialize the Python environment.");
-      } finally {
-        setIsLoading(false);
+        if (isMounted) {
+          setError(error.message || "Failed to initialize Python environment");
+          setIsLoading(false);
+        }
       }
     }
+
     setupPyodide();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const runCode = async () => {
-    if (!pyodide) return;
+    if (!pyodide || isRunning) return;
+    
+    setIsRunning(true);
     setOutput('Running code...');
+    setError(null);
+    
     try {
+      // Reset output capture
       let capturedOutput = '';
+      
+      // Set up output capture
       pyodide.setStdout({
         batched: (str) => {
-          capturedOutput += str + '\\n';
+          capturedOutput += str;
         },
       });
+      
       pyodide.setStderr({
         batched: (str) => {
-          capturedOutput += str + '\\n';
+          capturedOutput += str;
         },
       });
 
-      await pyodide.runPythonAsync(code);
-      setOutput(capturedOutput.trim() || 'Code executed successfully with no output.');
+      // Add timeout protection
+      const timeoutPromise = new Promise((_, reject) => {
+        setTimeout(() => reject(new Error('Code execution timed out')), 10000);
+      });
 
+      // Run the code with timeout
+      await Promise.race([
+        pyodide.runPythonAsync(code),
+        timeoutPromise
+      ]);
+      
+      setOutput(capturedOutput.trim() || 'Code executed successfully with no output.');
     } catch (error) {
-      setOutput(error.toString());
+      let errorMessage = error.toString();
+      
+      // Improve error messages
+      if (errorMessage.includes('SyntaxError')) {
+        errorMessage = `Syntax Error: ${errorMessage}`;
+      } else if (errorMessage.includes('IndentationError')) {
+        errorMessage = `Indentation Error: Check your code indentation\n${errorMessage}`;
+      } else if (errorMessage.includes('NameError')) {
+        errorMessage = `Name Error: Variable or function not defined\n${errorMessage}`;
+      } else if (errorMessage.includes('timeout')) {
+        errorMessage = 'Error: Code execution took too long and was stopped.';
+      }
+      
+      setOutput(errorMessage);
+    } finally {
+      setIsRunning(false);
     }
   };
 
   const copyCode = () => {
-      navigator.clipboard.writeText(code).catch(err => console.error('Failed to copy code: ', err));
+    navigator.clipboard.writeText(code)
+      .then(() => {
+        // Could add a toast notification here
+        console.log('Code copied to clipboard');
+      })
+      .catch(err => {
+        console.error('Failed to copy code:', err);
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = code;
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+          document.execCommand('copy');
+        } catch (err) {
+          console.error('Fallback copy failed:', err);
+        }
+        document.body.removeChild(textArea);
+      });
+  };
+
+  const resetCode = () => {
+    setCode(initialCode);
+    setOutput('');
+    setError(null);
+  };
+
+  if (error && !pyodide) {
+    return (
+      <div className="pyodide-runner error-state">
+        <h4>Interactive Code Example</h4>
+        <div className="error-message">
+          <p>⚠️ {error}</p>
+          <button onClick={() => window.location.reload()} className="retry-btn">
+            Reload Page
+          </button>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -79,13 +169,27 @@ function PyodideRunner() {
             fontFamily: '"Fira code", "Fira Mono", monospace',
             fontSize: 14,
           }}
+          textareaId="code-editor"
+          disabled={isRunning}
         />
-        <button onClick={copyCode} className="copy-code-btn" aria-label="Copy code">📋</button>
+        <div className="editor-controls">
+          <button onClick={copyCode} className="copy-code-btn" aria-label="Copy code" title="Copy code">
+            📋
+          </button>
+          <button onClick={resetCode} className="reset-code-btn" aria-label="Reset code" title="Reset to original">
+            ↺
+          </button>
+        </div>
       </div>
-      <button onClick={runCode} disabled={isLoading} className="run-btn">
-        {isLoading ? 'Loading Environment...' : '▶ Run Code'}
+      <button 
+        onClick={runCode} 
+        disabled={isLoading || isRunning} 
+        className="run-btn"
+        aria-busy={isRunning}
+      >
+        {isLoading ? 'Loading Environment...' : isRunning ? 'Running...' : '▶ Run Code'}
       </button>
-      <div className="output-container">
+      <div className="output-container" role="log" aria-live="polite">
         <pre><code>{output}</code></pre>
       </div>
     </div>

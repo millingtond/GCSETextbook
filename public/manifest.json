@@ -1,20 +1,41 @@
 {
   "short_name": "GCSE CS",
   "name": "GCSE Computer Science Digital Textbook",
+  "description": "Interactive digital textbook for OCR J277 GCSE Computer Science",
   "icons": [
     {
       "src": "/icon-192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "/icon-512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "theme_color": "#005eb8",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "categories": ["education", "books"],
+  "lang": "en-GB",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "url": "/dashboard",
+      "description": "View your progress"
+    },
+    {
+      "name": "Glossary",
+      "url": "/glossary",
+      "description": "Browse all terms"
+    }
+  ]
 }

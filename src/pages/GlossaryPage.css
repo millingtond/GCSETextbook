@@ -11,6 +11,7 @@
 
 .filter-container {
     margin-bottom: 2rem;
+    position: relative;
 }
 
 .glossary-filter-input {
@@ -23,6 +24,31 @@
 .light-theme .glossary-filter-input { border: 1px solid var(--border-light); }
 .dark-theme .glossary-filter-input { border: 1px solid var(--border-dark); background-color: #4a627a; color: var(--text-dark); }
 
+.filter-status {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.glossary-groups {
+    margin-top: 2rem;
+}
+
+.glossary-group {
+    margin-bottom: 3rem;
+}
+
+.group-letter {
+    font-size: 2rem;
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+.dark-theme .group-letter {
+    color: var(--focus-color);
+    border-bottom-color: var(--focus-color);
+}
 
 .glossary-list {
     column-count: 2;
@@ -41,13 +67,20 @@
     margin-top: 1.5rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--border-light);
+    break-inside: avoid;
 }
 .dark-theme .glossary-list dt { border-bottom: 1px solid var(--border-dark); }
-
 
 .glossary-list dd {
     margin-left: 0;
     margin-bottom: 1.5rem;
     line-height: 1.6;
     font-size: 1rem;
+    break-inside: avoid;
+}
+
+.no-results {
+    text-align: center;
+    padding: 3rem;
+    opacity: 0.7;
 }

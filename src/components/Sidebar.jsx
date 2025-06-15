@@ -9,13 +9,12 @@ const sectionStructure = {
   "1": {
     title: "1: Computer systems",
     subsections: [
-      "1.1 System architecture",
+      "1.1 Systems architecture",
       "1.2 Memory and storage",
       "1.3 Computer networks, connections and protocols",
-      "1.4 Network topologies, protocols and layers",
-      "1.5 System security",
-      "1.6 System software",
-      "1.7 Ethical, legal, cultural and environmental concerns"
+      "1.4 Network security",
+      "1.5 Systems software",
+      "1.6 Ethical, legal, cultural and environmental impacts of digital technology"
     ]
   },
   "2": {

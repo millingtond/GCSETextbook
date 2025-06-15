@@ -1,0 +1,75 @@
+.error-boundary {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.dark-theme .error-boundary {
+  background-color: #2c3e50;
+}
+
+.error-content {
+  max-width: 600px;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.dark-theme .error-content {
+  background: #34495e;
+  color: #ecf0f1;
+}
+
+.error-content h1 {
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+
+.error-content details {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+  text-align: left;
+  font-family: monospace;
+  font-size: 0.875rem;
+}
+
+.dark-theme .error-content details {
+  background: #2c3e50;
+}
+
+.error-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.retry-button, .home-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.retry-button {
+  background: #3498db;
+  color: white;
+}
+
+.home-button {
+  background: #95a5a6;
+  color: white;
+}
+
+.retry-button:hover, .home-button:hover {
+  opacity: 0.8;
+}

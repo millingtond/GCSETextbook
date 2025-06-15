@@ -1,38 +1,758 @@
 [
     {
-        "slug": "stored-program-concept",
-        "title": "Stored program concept",
-        "content": "Instructions and data are both stored within memory during execution.\n\nVon Neumann architecture uses stored program concept - both the Instructions and data are stored in the same memory system.",
+        "slug": "cpu-purpose-and-function",
+        "title": "The purpose of the CPU",
+        "content": "The Central Processing Unit (CPU) is the brain of the computer system. Its primary purpose is to process data and instructions.\n\nThe CPU performs three main functions:\n• Fetch - retrieving instructions from memory\n• Decode - understanding what the instruction means\n• Execute - carrying out the instruction\n\nThis is known as the Fetch-Decode-Execute cycle (FDE cycle), which repeats billions of times per second in modern computers.\n\nThe CPU controls all other components in the computer system and performs:\n• Arithmetic calculations (addition, subtraction, multiplication, division)\n• Logical operations (AND, OR, NOT comparisons)\n• Data movement between components\n• Control operations to manage the system",
         "section": "1",
-        "subsection": "1.1 System architecture",
-        "craigAndDaveVideoId": "ERINv5nL-QQ",
-        "notionPageUrl": "https://www.notion.so/placeholder"
+        "subsection": "1.1 Systems architecture",
+        "craigAndDaveVideoId": "7Up7DIPkTzo",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "fetch-decode-execute-cycle",
+        "title": "The Fetch-Decode-Execute cycle",
+        "content": "The Fetch-Decode-Execute (FDE) cycle is the fundamental process by which a CPU operates. It consists of three stages that repeat continuously:\n\n1. FETCH stage:\n• The Program Counter (PC) holds the address of the next instruction\n• This address is copied to the Memory Address Register (MAR)\n• The instruction at that address is fetched from memory\n• The instruction is stored in the Memory Data Register (MDR)\n• The instruction is then copied to the Current Instruction Register (CIR)\n• The Program Counter is incremented to point to the next instruction\n\n2. DECODE stage:\n• The Control Unit decodes the instruction in the CIR\n• It works out what the instruction means and what data is needed\n• Any required memory addresses are sent to the MAR\n• Any required data is fetched from memory to the MDR\n\n3. EXECUTE stage:\n• The Arithmetic Logic Unit (ALU) performs calculations if needed\n• Results are stored in the Accumulator or memory\n• The cycle then repeats for the next instruction",
+        "section": "1",
+        "subsection": "1.1 Systems architecture",
+        "craigAndDaveVideoId": "Z6yHVFmpV8I",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "cpu-components",
+        "title": "Common CPU components and their function",
+        "content": "The CPU contains several key components that work together:\n\nArithmetic Logic Unit (ALU):\n• Performs arithmetic operations (+ - × ÷)\n• Performs logical operations (AND, OR, NOT)\n• Makes comparisons (>, <, =)\n\nControl Unit (CU):\n• Coordinates all CPU activities\n• Decodes instructions\n• Sends control signals to other components\n• Controls the timing of operations\n\nCache:\n• Very fast memory located on or near the CPU\n• Stores frequently used data and instructions\n• Reduces the need to fetch from slower RAM\n• Typically organized in levels (L1, L2, L3)\n\nRegisters (very fast temporary storage):\n• Program Counter (PC) - holds address of next instruction\n• Memory Address Register (MAR) - holds address to access in memory\n• Memory Data Register (MDR) - holds data being transferred\n• Current Instruction Register (CIR) - holds current instruction\n• Accumulator (ACC) - stores results of calculations\n\nBuses:\n• Address bus - carries memory addresses\n• Data bus - carries data between components\n• Control bus - carries control signals",
+        "section": "1",
+        "subsection": "1.1 Systems architecture",
+        "craigAndDaveVideoId": "qJCyzPqVQCQ",
+        "notionPageUrl": ""
     },
     {
         "slug": "von-neumann-architecture",
-        "title": "Von Neumann Architecture",
-        "content": "A computer architecture where instructions and data are stored in the same memory location.\nIt consists of a CPU, memory, and input/output devices.",
+        "title": "Von Neumann architecture",
+        "content": "Von Neumann architecture is the design upon which most modern computers are based. Proposed by John von Neumann in 1945, it introduced revolutionary concepts:\n\nKey characteristics:\n• Stored program concept - both data and instructions are stored in the same memory\n• Instructions are fetched and executed sequentially\n• Single control unit manages instruction processing\n• Uses the Fetch-Decode-Execute cycle\n\nMain components:\n• Central Processing Unit (CPU) containing:\n  - Arithmetic Logic Unit (ALU)\n  - Control Unit (CU)\n  - Registers\n• Memory unit (RAM) storing both data and programs\n• Input devices (keyboard, mouse, etc.)\n• Output devices (monitor, printer, etc.)\n• Buses connecting all components\n\nAdvantages:\n• Simpler design - one memory for everything\n• Flexible - programs can be easily changed\n• Programs can modify themselves\n\nDisadvantages:\n• Von Neumann bottleneck - data and instructions share the same bus\n• Can only fetch either data or an instruction at one time\n• This limits processing speed",
         "section": "1",
-        "subsection": "1.1 System architecture",
-        "craigAndDaveVideoId": "KBmoqwVt4Qg",
-        "notionPageUrl": "https://www.notion.so/placeholder"
+        "subsection": "1.1 Systems architecture",
+        "craigAndDaveVideoId": "SbqXqQ-3FJw",
+        "notionPageUrl": ""
     },
     {
-        "slug": "ram-and-rom",
-        "title": "RAM and ROM",
-        "content": "RAM (Random Access Memory): Volatile memory used to store programs and data currently in use. Its contents are lost when the power is off.\nROM (Read-Only Memory): Non-volatile memory that stores the bootstrap instructions (BIOS). Its contents cannot be easily changed.",
+        "slug": "cpu-performance-factors",
+        "title": "Factors affecting CPU performance",
+        "content": "Several factors determine how fast a CPU can process instructions:\n\n1. Clock Speed:\n• Measured in Hertz (Hz) - typically GHz for modern CPUs\n• Number of Fetch-Decode-Execute cycles per second\n• Higher clock speed = more instructions processed per second\n• Example: 3.5 GHz = 3.5 billion cycles per second\n• Overclocking can increase speed but may cause overheating\n\n2. Number of Cores:\n• Each core is a complete processing unit\n• Multiple cores allow parallel processing\n• Dual-core = 2 cores, Quad-core = 4 cores, etc.\n• More cores = more tasks handled simultaneously\n• Not all software can utilize multiple cores effectively\n\n3. Cache Size:\n• Larger cache stores more frequently used data\n• Reduces need to access slower RAM\n• L1 cache (smallest, fastest) typically 32-64KB\n• L2 cache (larger, slower) typically 256KB-1MB\n• L3 cache (largest, slowest) typically 8-32MB\n• More cache = fewer delays fetching data\n\nOther factors:\n• Pipelining - overlapping instruction stages\n• Bus width - more data transferred at once\n• Word length - amount of data processed in one go",
+        "section": "1",
+        "subsection": "1.1 Systems architecture",
+        "craigAndDaveVideoId": "XKJHJKVhZ6Q",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "embedded-systems",
+        "title": "Embedded systems",
+        "content": "An embedded system is a computer system with a dedicated function within a larger mechanical or electrical system.\n\nKey characteristics:\n• Designed for a specific task\n• Built into the device they control\n• Often real-time operation required\n• Usually low power consumption\n• Limited memory and processing power\n• Often no user interface or a simple one\n\nExamples in everyday life:\n• Washing machines - control wash cycles\n• Microwave ovens - control cooking times and power\n• Car engine management systems\n• Digital watches\n• Traffic lights\n• Central heating controllers\n• Fitness trackers\n• Smart TVs\n• Routers\n\nAdvantages:\n• Low cost due to mass production\n• Small physical size\n• Dedicated to one task - very reliable\n• Low power consumption\n• Fast response times\n\nDisadvantages:\n• Limited functionality\n• Difficult to upgrade\n• Hard to fix if they fail\n• May have limited processing power\n\nProgramming embedded systems:\n• Often use low-level languages\n• Must be very efficient\n• Real-time constraints common",
+        "section": "1",
+        "subsection": "1.1 Systems architecture",
+        "craigAndDaveVideoId": "AGLPbPaKXLc",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "primary-storage",
+        "title": "Primary storage (Memory)",
+        "content": "Primary storage is directly accessible by the CPU and is essential for a computer to function. It includes RAM, ROM, and cache memory.\n\nRandom Access Memory (RAM):\n• Volatile - contents lost when power is off\n• Stores programs and data currently in use\n• Can be read from and written to\n• Much faster than secondary storage\n• Temporary storage while computer is running\n• Typical sizes: 4GB, 8GB, 16GB, 32GB\n\nRead Only Memory (ROM):\n• Non-volatile - contents remain when power is off\n• Contains the boot-up instructions (BIOS/UEFI)\n• Cannot be changed by the user\n• Small capacity compared to RAM\n• Stores firmware and essential startup routines\n\nCache Memory:\n• Extremely fast memory on or near the CPU\n• Stores frequently accessed data and instructions\n• Much smaller than RAM but much faster\n• Different levels: L1 (fastest), L2, L3\n• Reduces time waiting for data from RAM\n\nFlash Memory:\n• Non-volatile like ROM\n• Can be written to like RAM\n• Used in USB drives, SSDs, memory cards\n• Limited number of write cycles\n• No moving parts - more durable than HDDs",
         "section": "1",
         "subsection": "1.2 Memory and storage",
-        "craigAndDaveVideoId": "Hqu1S_1321U",
-        "notionPageUrl": "https://www.notion.so/placeholder"
+        "craigAndDaveVideoId": "NKr7mDnAcP8",
+        "notionPageUrl": ""
     },
     {
-        "slug": "for-loop",
-        "title": "FOR loop",
-        "content": "A count-controlled loop that iterates a set number of times.\n\nExample:\nFOR i = 1 TO 10\n  PRINT i\nNEXT i",
+        "slug": "ram-rom-differences",
+        "title": "Differences between RAM and ROM",
+        "content": "RAM (Random Access Memory) and ROM (Read Only Memory) are both primary storage but have key differences:\n\nVolatility:\n• RAM is volatile - loses contents when power is off\n• ROM is non-volatile - keeps contents without power\n\nPurpose:\n• RAM stores running programs and current data\n• ROM stores boot instructions and firmware\n\nRead/Write capability:\n• RAM can be read from and written to\n• ROM can only be read from (in normal use)\n\nSpeed:\n• RAM is very fast for both reading and writing\n• ROM is fast for reading but cannot be written to\n\nCapacity:\n• RAM typically has large capacity (GB)\n• ROM typically has small capacity (MB)\n\nContents:\n• RAM contents change constantly during use\n• ROM contents are permanent/semi-permanent\n\nExamples of use:\n• RAM: Operating system, open applications, documents\n• ROM: BIOS/UEFI, firmware, boot loader\n\nCost:\n• RAM is more expensive per GB\n• ROM is cheaper but usually much smaller\n\nNeed for power:\n• RAM needs constant power to retain data\n• ROM retains data without any power",
+        "section": "1",
+        "subsection": "1.2 Memory and storage",
+        "craigAndDaveVideoId": "R8I_HU3KhoI",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "virtual-memory",
+        "title": "Virtual memory",
+        "content": "Virtual memory is a memory management technique that uses secondary storage to extend the available memory.\n\nHow it works:\n• When RAM is full, unused parts of programs are moved to the hard disk\n• This frees up RAM for active programs\n• The area on the disk is called a page file or swap file\n• When needed, data is swapped back into RAM\n• The OS manages this process automatically\n\nPaging:\n• Memory is divided into fixed-size blocks called pages\n• Pages can be swapped between RAM and disk\n• Page table keeps track of where pages are stored\n• Only active pages need to be in RAM\n\nAdvantages:\n• Allows more programs to run than RAM can hold\n• Programs can be larger than physical RAM\n• Efficient use of expensive RAM\n• Prevents 'out of memory' errors\n\nDisadvantages:\n• Disk access is much slower than RAM\n• Excessive swapping causes 'thrashing'\n• Performance degrades significantly\n• Can wear out SSDs with excessive writes\n\nWhen virtual memory is used:\n• Running multiple large programs\n• Opening many browser tabs\n• Working with large files\n• Gaming with insufficient RAM\n\nOptimizing virtual memory:\n• Add more physical RAM\n• Close unnecessary programs\n• Use faster storage (SSD vs HDD)",
+        "section": "1",
+        "subsection": "1.2 Memory and storage",
+        "craigAndDaveVideoId": "OMlAKrppE9I",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "secondary-storage-need",
+        "title": "The need for secondary storage",
+        "content": "Secondary storage is essential because primary storage (RAM) is volatile and limited. Without it, all data would be lost when the computer is turned off.\n\nReasons we need secondary storage:\n\n1. Permanence:\n• RAM loses all data when power is off\n• Secondary storage retains data permanently\n• Allows us to save work and turn off computers\n\n2. Capacity:\n• RAM is limited (typically 4-32GB)\n• Secondary storage offers much more space (TBs)\n• Can store thousands of files, photos, videos\n\n3. Cost effectiveness:\n• RAM is expensive per GB\n• Secondary storage is much cheaper\n• Provides affordable mass storage\n\n4. Portability:\n• External drives can be moved between computers\n• USB drives allow easy file transfer\n• Cloud storage accessible from anywhere\n\n5. Backup and archiving:\n• Protects against data loss\n• Historical records can be kept\n• Multiple copies for safety\n\nTypes of files stored:\n• Operating system files\n• Application software\n• User documents and media\n• System backups\n• Temporary files and caches\n\nWithout secondary storage:\n• No permanent file storage\n• Reinstall everything after power loss\n• No way to transfer files\n• Very limited functionality",
+        "section": "1",
+        "subsection": "1.2 Memory and storage",
+        "craigAndDaveVideoId": "jUakZDWRjwE",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "storage-types",
+        "title": "Types of storage devices",
+        "content": "There are three main types of secondary storage technology:\n\n1. MAGNETIC STORAGE:\nHard Disk Drives (HDD):\n• Uses spinning magnetic disks (platters)\n• Read/write heads move across platters\n• Large capacity (up to several TB)\n• Relatively cheap per GB\n• Mechanical parts can fail\n• Slower than SSDs\n• Fragmentation reduces performance\n\nMagnetic Tape:\n• Very high capacity\n• Very cheap per GB\n• Sequential access only\n• Used for backups and archives\n• Slow access times\n\n2. OPTICAL STORAGE:\nTypes: CD, DVD, Blu-ray\n• Use laser to read/write data\n• Portable and cheap media\n• Limited capacity (CD: 700MB, DVD: 4.7GB, Blu-ray: 25GB)\n• Easily scratched or damaged\n• Becoming less common\n• Read-only (ROM), Recordable (R), Rewritable (RW)\n\n3. SOLID STATE (FLASH) STORAGE:\nSolid State Drives (SSD):\n• No moving parts - uses flash memory\n• Very fast read/write speeds\n• More expensive per GB than HDD\n• Silent operation\n• Lower power consumption\n• More durable\n• Limited write cycles\n\nUSB Flash Drives:\n• Portable and convenient\n• Various capacities (GB to TB)\n• Plug and play\n• Can be lost easily\n• Durable but can fail",
+        "section": "1",
+        "subsection": "1.2 Memory and storage",
+        "craigAndDaveVideoId": "E0Hd0ZsXBMQ",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "storage-characteristics",
+        "title": "Storage characteristics",
+        "content": "When choosing storage devices, consider these key characteristics:\n\n1. CAPACITY:\n• How much data can be stored\n• Measured in bytes (KB, MB, GB, TB)\n• HDDs: up to 20TB+\n• SSDs: typically up to 8TB\n• Optical: CD (700MB), DVD (4.7GB), Blu-ray (25-50GB)\n• USB drives: 1GB to 2TB\n\n2. SPEED:\n• How fast data can be read/written\n• SSDs: 500-3500 MB/s\n• HDDs: 80-160 MB/s\n• Optical: 10-50 MB/s\n• Affects boot times and file transfers\n\n3. PORTABILITY:\n• How easily moved between systems\n• USB drives: highly portable\n• External HDDs/SSDs: portable\n• Internal drives: not portable\n• Optical discs: very portable\n\n4. DURABILITY:\n• Resistance to damage\n• SSDs: no moving parts, shock resistant\n• HDDs: vulnerable to physical shock\n• Optical: easily scratched\n• Flash drives: water/shock resistant\n\n5. RELIABILITY:\n• How long before failure\n• SSDs: limited write cycles but very reliable\n• HDDs: mechanical failure possible\n• Optical: can degrade over time\n\n6. COST:\n• Price per GB of storage\n• HDDs: cheapest per GB\n• SSDs: more expensive but falling\n• Optical: cheap media",
+        "section": "1",
+        "subsection": "1.2 Memory and storage",
+        "craigAndDaveVideoId": "D_xTpJZw_SY",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "storage-media-suitability",
+        "title": "Suitable storage devices and media",
+        "content": "Different storage solutions suit different purposes:\n\nFOR OPERATING SYSTEMS:\n• SSD preferred - fast boot times\n• Needs random access capability\n• Reliability crucial\n• 256GB-512GB typical\n\nFOR LARGE FILE STORAGE:\n• HDD - cheap high capacity\n• Good for videos, photos, archives\n• Speed less critical\n• 1TB+ recommended\n\nFOR BACKUPS:\n• External HDD - high capacity, affordable\n• Magnetic tape - enterprise archives\n• Cloud storage - off-site protection\n• Optical discs - long-term archives\n\nFOR PORTABLE USE:\n• USB flash drives - convenient\n• External SSDs - fast and durable\n• Cloud storage - accessible anywhere\n• SD cards - cameras and phones\n\nFOR GAMING:\n• SSD - fast loading times\n• Large capacity needed (500GB+)\n• NVMe SSDs for best performance\n\nFOR SERVERS:\n• Enterprise SSDs - reliability\n• RAID arrays - redundancy\n• Hot-swappable drives\n\nCONSIDERATIONS:\n• Budget constraints\n• Performance requirements\n• Portability needs\n• Reliability demands\n• Capacity requirements\n• Environmental factors\n• Expected lifespan\n• Access patterns (random/sequential)",
+        "section": "1",
+        "subsection": "1.2 Memory and storage",
+        "craigAndDaveVideoId": "rmqJUfPBBKk",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "data-capacity-units",
+        "title": "Units of data storage",
+        "content": "Computers store data in binary (0s and 1s). Understanding storage units is essential:\n\nBASIC UNITS:\n• Bit - smallest unit (0 or 1)\n• Nibble - 4 bits\n• Byte - 8 bits (one character)\n• Word - typically 16, 32, or 64 bits\n\nSTORAGE UNITS:\n• 1 Kilobyte (KB) = 1,000 bytes (or 1,024 in binary)\n• 1 Megabyte (MB) = 1,000 KB\n• 1 Gigabyte (GB) = 1,000 MB\n• 1 Terabyte (TB) = 1,000 GB\n• 1 Petabyte (PB) = 1,000 TB\n\nBINARY VS DECIMAL:\n• Decimal: KB = 1,000 bytes (manufacturers use this)\n• Binary: KiB = 1,024 bytes (computers use this)\n• This explains why a '1TB' drive shows as ~931GB\n\nTYPICAL FILE SIZES:\n• Text document: 10-100 KB\n• Photo (compressed): 2-5 MB\n• Photo (RAW): 20-40 MB\n• MP3 song: 3-10 MB\n• HD movie: 2-8 GB\n• 4K movie: 20-100 GB\n• Operating system: 20-50 GB\n\nCALCULATIONS:\n• To convert up: divide by 1,000 (or 1,024)\n• To convert down: multiply by 1,000 (or 1,024)\n• Example: 5,000 MB = 5 GB\n• Example: 2 TB = 2,000 GB",
+        "section": "1",
+        "subsection": "1.2 Memory and storage",
+        "craigAndDaveVideoId": "5OqUhBnwQ4Y",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "data-storage-calculation",
+        "title": "Calculating data capacity requirements",
+        "content": "Being able to calculate storage requirements is an important skill:\n\nBASIC CALCULATIONS:\n\nExample 1 - Text Storage:\n• One page of text ≈ 2 KB\n• 500-page book = 500 × 2 KB = 1,000 KB = 1 MB\n• 1,000 books = 1,000 × 1 MB = 1 GB\n\nExample 2 - Photo Storage:\n• One photo = 4 MB\n• 250 photos = 250 × 4 MB = 1,000 MB = 1 GB\n• Photos per 32GB card = 32,000 ÷ 4 = 8,000 photos\n\nExample 3 - Music Storage:\n• One song = 5 MB\n• One album (12 songs) = 12 × 5 MB = 60 MB\n• 100 albums = 100 × 60 MB = 6,000 MB = 6 GB\n\nExample 4 - Video Storage:\n• HD video = 25 MB per minute\n• 2-hour film = 120 × 25 MB = 3,000 MB = 3 GB\n• 4K video = 375 MB per minute\n• 2-hour 4K film = 120 × 375 MB = 45,000 MB = 45 GB\n\nSTORAGE PLANNING:\n• Operating System: 50 GB\n• Applications: 100 GB\n• Documents: 10 GB\n• Photos: 50 GB\n• Videos: 200 GB\n• Games: 300 GB\n• Total needed: 710 GB\n• Recommended: 1 TB drive (allows for growth)\n\nALWAYS CONSIDER:\n• Future growth\n• Backup requirements\n• Temporary file space\n• 20% free space for performance",
+        "section": "1",
+        "subsection": "1.2 Memory and storage",
+        "craigAndDaveVideoId": "QOadCiuTv6E",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "network-types",
+        "title": "Types of networks: LAN and WAN",
+        "content": "Computer networks can be classified by their geographical coverage:\n\nLocal Area Network (LAN):\n• Covers a small geographical area\n• Single site - building, school, home\n• All hardware owned by the organization\n• High speed connections (100 Mbps - 10 Gbps)\n• Low cost to set up and maintain\n• More secure - physical access controlled\n• Uses Ethernet cables or WiFi\n• Examples: School network, home network, office network\n\nWide Area Network (WAN):\n• Covers large geographical area\n• Multiple sites - cities, countries, continents\n• Infrastructure often owned by telecom companies\n• Slower connections than LAN\n• Higher cost - line rental, equipment\n• Less secure - data travels through public infrastructure\n• Uses telephone lines, fiber optic, satellite\n• Examples: The Internet, company networks across cities\n\nOther network types:\n• Personal Area Network (PAN) - very small, around a person\n• Metropolitan Area Network (MAN) - city-sized\n• Virtual Private Network (VPN) - secure connection over public network\n\nKey differences:\n• Geographic coverage\n• Ownership of infrastructure\n• Speed and cost\n• Security levels\n• Technologies used",
+        "section": "1",
+        "subsection": "1.3 Computer networks, connections and protocols",
+        "craigAndDaveVideoId": "1fI5lVa_4Kw",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "network-performance-factors",
+        "title": "Factors affecting network performance",
+        "content": "Several factors determine how well a network performs:\n\n1. BANDWIDTH:\n• Maximum amount of data that can be transmitted\n• Measured in bits per second (bps)\n• Higher bandwidth = more data capacity\n• Shared between all users\n• Common speeds: 100 Mbps, 1 Gbps, 10 Gbps\n\n2. NUMBER OF USERS:\n• More users = bandwidth shared more ways\n• Each user gets smaller portion\n• Can cause congestion and slowdowns\n• Peak times see worse performance\n• Quality of Service (QoS) can prioritize traffic\n\n3. TRANSMISSION MEDIA:\n• Copper cable: up to 1 Gbps, limited distance\n• Fiber optic: up to 100 Gbps+, long distance\n• Wireless: convenient but slower, interference issues\n• Each has different speed capabilities\n\n4. LATENCY:\n• Delay in data transmission\n• Measured in milliseconds (ms)\n• Caused by distance, processing, congestion\n• Critical for real-time applications\n• Lower is better\n\n5. ERROR RATE:\n• Corrupted data must be retransmitted\n• Interference causes errors\n• Poor quality cables increase errors\n• Wireless more prone to interference\n\n6. HARDWARE:\n• Router/switch processing power\n• Network card capabilities\n• Server performance\n• Cable quality and age",
+        "section": "1",
+        "subsection": "1.3 Computer networks, connections and protocols",
+        "craigAndDaveVideoId": "88uUn1sHHHg",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "client-server-peer-to-peer",
+        "title": "Client-server and peer-to-peer networks",
+        "content": "Networks can be organized in two main ways:\n\nCLIENT-SERVER NETWORKS:\n\nStructure:\n• Central server(s) provide services\n• Clients request services from server\n• Clear hierarchy and roles\n• All data stored centrally\n\nAdvantages:\n• Centralized management and backup\n• Better security - one point to secure\n• Easier to maintain and update\n• User access controls\n• Can handle many users\n• Professional grade performance\n\nDisadvantages:\n• Expensive - server hardware and software\n• Single point of failure\n• Requires technical expertise\n• Server overload possible\n• Clients dependent on server\n\nPEER-TO-PEER NETWORKS:\n\nStructure:\n• All computers equal (peers)\n• Each can be client and server\n• Direct sharing between computers\n• No central control\n\nAdvantages:\n• No expensive server needed\n• Easy to set up\n• No specialist knowledge required\n• If one fails, others continue\n• Good for small networks\n\nDisadvantages:\n• No centralized management\n• Backup individual responsibility\n• Security harder to maintain\n• Finding resources difficult\n• Performance depends on peer computers\n• Not suitable for many users\n\nExamples:\n• Client-server: School networks, web services, email\n• Peer-to-peer: Home networks, file sharing, blockchain",
+        "section": "1",
+        "subsection": "1.3 Computer networks, connections and protocols",
+        "craigAndDaveVideoId": "LzILwRdkzsY",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "network-hardware",
+        "title": "Hardware needed for networks",
+        "content": "Various hardware components are needed to create and connect networks:\n\n1. NETWORK INTERFACE CARD (NIC):\n• Allows device to connect to network\n• Built into motherboard or separate card\n• Each has unique MAC address\n• Wired (Ethernet) or wireless (WiFi)\n• Handles data packaging and transmission\n\n2. SWITCHES:\n• Connect devices on a LAN\n• Operate at Layer 2 (Data Link)\n• Use MAC addresses to direct traffic\n• Create collision-free domains\n• More intelligent than hubs\n• Common speeds: 1 Gbps, 10 Gbps\n\n3. ROUTERS:\n• Connect different networks together\n• Connect LAN to WAN (Internet)\n• Operate at Layer 3 (Network)\n• Use IP addresses for routing\n• Can include firewall features\n• Home routers often include switch and WAP\n\n4. WIRELESS ACCESS POINTS (WAP):\n• Allow wireless devices to connect\n• Convert between wired and wireless\n• Create WiFi hotspots\n• Range typically 50-100 meters\n• Support multiple standards (802.11n/ac/ax)\n\n5. TRANSMISSION MEDIA:\n• Ethernet cables (Cat5e, Cat6, Cat6a)\n• Fiber optic cables\n• Wireless radio waves\n\n6. OTHER DEVICES:\n• Repeaters - extend signal range\n• Bridges - connect network segments\n• Modems - convert digital to analog signals\n• Servers - provide network services",
+        "section": "1",
+        "subsection": "1.3 Computer networks, connections and protocols",
+        "craigAndDaveVideoId": "E3BGxKcQCNE",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "the-internet",
+        "title": "The internet",
+        "content": "The Internet is the largest WAN in existence - a global network of interconnected networks.\n\nKEY CONCEPTS:\n\nStructure:\n• Network of networks\n• No central control or ownership\n• Uses common protocols (TCP/IP)\n• Connected via Internet Service Providers (ISPs)\n• Backbone of high-speed connections\n\nHow it works:\n• Data split into packets\n• Packets routed independently\n• Multiple paths available\n• Packets reassembled at destination\n• Resilient to failures\n\nKey components:\n• ISPs provide access\n• Root servers manage DNS\n• Internet Exchange Points (IXPs)\n• Submarine cables connect continents\n• Satellites for remote areas\n\nInternet vs World Wide Web:\n• Internet: Physical network infrastructure\n• WWW: Service that runs on the Internet\n• Internet includes: email, FTP, gaming, streaming\n• WWW: Websites accessed via browsers\n\nIP Addresses:\n• Every device needs unique address\n• IPv4: 32-bit (e.g., 192.168.1.1)\n• IPv6: 128-bit (due to IPv4 exhaustion)\n• Static or dynamic allocation\n\nDomain Name System (DNS):\n• Converts domain names to IP addresses\n• Hierarchical system\n• Makes Internet human-friendly\n• Example: google.com → 142.250.187.78",
+        "section": "1",
+        "subsection": "1.3 Computer networks, connections and protocols",
+        "craigAndDaveVideoId": "7RC4fBVMvF0",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "dns-process",
+        "title": "How DNS works",
+        "content": "The Domain Name System (DNS) is like the Internet's phone book, converting human-readable domain names into IP addresses.\n\nDNS PROCESS:\n\n1. User types URL (www.example.com)\n2. Computer checks local DNS cache\n3. If not found, queries ISP's DNS server\n4. ISP server checks its cache\n5. If not found, queries root DNS server\n6. Root server directs to TLD server (.com)\n7. TLD server directs to authoritative server\n8. Authoritative server returns IP address\n9. IP address cached and returned to user\n10. Browser connects using IP address\n\nDNS HIERARCHY:\n• Root servers (13 globally)\n• Top Level Domain servers (.com, .uk, .org)\n• Authoritative servers (specific domains)\n• Local DNS servers (ISP)\n\nDNS RECORDS:\n• A record: domain to IPv4\n• AAAA record: domain to IPv6\n• MX record: mail servers\n• CNAME: aliases\n• TXT: text information\n\nBENEFITS:\n• Human-friendly names\n• IP addresses can change\n• Load balancing possible\n• Redundancy built in\n\nSECURITY ISSUES:\n• DNS poisoning\n• DNS hijacking\n• DDoS attacks on DNS\n• DNSSEC adds security",
+        "section": "1",
+        "subsection": "1.3 Computer networks, connections and protocols",
+        "craigAndDaveVideoId": "C0V-12Y15PU",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "web-hosting",
+        "title": "Web servers and hosting",
+        "content": "Web hosting is the service of storing websites and making them accessible on the Internet.\n\nWEB SERVERS:\n• Specialized computers that store websites\n• Run web server software (Apache, Nginx, IIS)\n• Process HTTP/HTTPS requests\n• Send web pages to browsers\n• Handle multiple requests simultaneously\n• High uptime requirements (24/7)\n\nTYPES OF HOSTING:\n\n1. Shared Hosting:\n• Multiple websites on one server\n• Cheapest option\n• Limited resources and control\n• Good for small websites\n• Performance affected by other sites\n\n2. Virtual Private Server (VPS):\n• Virtual partition on a server\n• More control and resources\n• Scalable\n• Medium cost\n• Better performance\n\n3. Dedicated Server:\n• Entire server for one client\n• Full control\n• Best performance\n• Most expensive\n• For large/busy websites\n\n4. Cloud Hosting:\n• Distributed across multiple servers\n• Highly scalable\n• Pay for what you use\n• Very reliable\n• Good for variable traffic\n\nHOSTING CONSIDERATIONS:\n• Bandwidth allowance\n• Storage space\n• Uptime guarantee\n• Security features\n• Backup services\n• Technical support\n• Server location\n• SSL certificates",
+        "section": "1",
+        "subsection": "1.3 Computer networks, connections and protocols",
+        "craigAndDaveVideoId": "3QqyzphS87M",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "cloud-computing",
+        "title": "The cloud",
+        "content": "Cloud computing delivers computing services over the Internet instead of local computers.\n\nCLOUD SERVICES:\n\n1. Software as a Service (SaaS):\n• Applications run on cloud\n• Access via web browser\n• Examples: Google Docs, Office 365, Gmail\n• No installation needed\n• Automatic updates\n\n2. Platform as a Service (PaaS):\n• Development platform in cloud\n• For creating applications\n• Examples: Google App Engine, Heroku\n• No server management\n\n3. Infrastructure as a Service (IaaS):\n• Virtual machines and storage\n• Full control over OS\n• Examples: AWS EC2, Azure VMs\n• Scalable resources\n\nADVANTAGES:\n• Access from anywhere\n• No upfront hardware costs\n• Automatic backups\n• Scalability on demand\n• Professional maintenance\n• Collaboration features\n• Automatic software updates\n\nDISADVANTAGES:\n• Requires Internet connection\n• Ongoing subscription costs\n• Data security concerns\n• Limited control\n• Vendor lock-in\n• Privacy issues\n• Downtime affects access\n\nCOMMON USES:\n• File storage (Dropbox, OneDrive)\n• Email services\n• Web applications\n• Data backup\n• Development and testing\n• Big data analytics\n• Machine learning",
+        "section": "1",
+        "subsection": "1.3 Computer networks, connections and protocols",
+        "craigAndDaveVideoId": "J1D3nZ8H2y8",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "network-threats",
+        "title": "Forms of attack",
+        "content": "Networks face various security threats that can compromise data and systems:\n\n1. MALWARE (Malicious Software):\n• Viruses - attach to files, self-replicate\n• Worms - self-replicate across networks\n• Trojans - disguised as legitimate software\n• Ransomware - encrypts files for ransom\n• Spyware - secretly collects information\n• Adware - displays unwanted advertisements\n\n2. SOCIAL ENGINEERING:\n• Phishing - fake emails to steal credentials\n• Shoulder surfing - watching users enter data\n• Pretexting - creating false scenarios\n• Baiting - leaving infected devices\n• Tailgating - following into secure areas\n• Targets human psychology not technology\n\n3. BRUTE FORCE ATTACKS:\n• Trying all password combinations\n• Dictionary attacks use common passwords\n• Can be automated with software\n• Time increases with password complexity\n• Account lockouts can prevent\n\n4. DENIAL OF SERVICE (DoS):\n• Overwhelming servers with requests\n• DDoS uses multiple computers (botnet)\n• Makes services unavailable\n• Hard to defend against\n• Can be for extortion or disruption\n\n5. DATA INTERCEPTION:\n• Packet sniffing on networks\n• Man-in-the-middle attacks\n• Unencrypted data vulnerable\n• WiFi particularly at risk\n• SSL/TLS provides protection\n\n6. SQL INJECTION:\n• Inserting malicious SQL code\n• Can access/modify databases\n• Poor input validation allows\n• Major risk for web applications",
+        "section": "1",
+        "subsection": "1.4 Network security",
+        "craigAndDaveVideoId": "SdKvPn0th0U",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "malware-types",
+        "title": "Types of malware",
+        "content": "Malware is malicious software designed to damage or gain unauthorized access to computer systems:\n\nVIRUSES:\n• Attach to legitimate files\n• Require user action to spread\n• Self-replicate when executed\n• Can delete files, corrupt data\n• Spread via email, USB, downloads\n• Examples: ILOVEYOU, Melissa\n\nWORMS:\n• Self-contained programs\n• Spread automatically via networks\n• No user action required\n• Exploit system vulnerabilities\n• Can create botnets\n• Examples: WannaCry, Conficker\n\nTROJANS:\n• Disguised as useful software\n• Don't self-replicate\n• Create backdoors for attackers\n• Steal data or install other malware\n• User installs unknowingly\n• Examples: Zeus, Emotet\n\nRANSOMWARE:\n• Encrypts user files\n• Demands payment for decryption\n• Often spreads like worms\n• Targets individuals and organizations\n• Payment doesn't guarantee recovery\n• Examples: CryptoLocker, NotPetya\n\nSPYWARE:\n• Monitors user activity\n• Steals personal information\n• Keyloggers record keystrokes\n• Often bundled with free software\n• Sends data to attackers\n• Hard to detect\n\nROOTKITS:\n• Hide deep in operating system\n• Conceal other malware\n• Very difficult to remove\n• Can survive reboots\n• Give attackers full control",
+        "section": "1",
+        "subsection": "1.4 Network security",
+        "craigAndDaveVideoId": "_GzE99AmAQU",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "network-security-threats",
+        "title": "Network security threats",
+        "content": "Networks face specific threats beyond general malware:\n\nPHISHING:\n• Fraudulent emails/websites\n• Appear legitimate (banks, companies)\n• Steal login credentials\n• Often contain urgent language\n• Check sender address carefully\n• Look for spelling/grammar errors\n• Hover over links before clicking\n\nPHARMING:\n• Redirects to fake websites\n• DNS poisoning technique\n• Even correct URL goes to fake site\n• Very hard to detect\n• HTTPS and certificates help\n\nMAN-IN-THE-MIDDLE:\n• Attacker between user and service\n• Intercepts communications\n• Can read/modify data\n• Common on unsecured WiFi\n• VPNs provide protection\n\nPACKET SNIFFING:\n• Capturing network traffic\n• Reading data packets\n• Passwords visible if unencrypted\n• WiFi particularly vulnerable\n• Encryption essential\n\nDDoS ATTACKS:\n• Distributed Denial of Service\n• Multiple computers attack together\n• Floods target with traffic\n• Legitimate users can't access\n• Hard to defend against\n• Can demand ransom\n\nINSIDER THREATS:\n• Employees with access\n• Intentional or accidental\n• Can bypass security\n• Need access controls\n• Monitor unusual activity\n• Regular security training",
+        "section": "1",
+        "subsection": "1.4 Network security",
+        "craigAndDaveVideoId": "wnjQuJTA-7g",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "identifying-vulnerabilities",
+        "title": "Identifying and preventing vulnerabilities",
+        "content": "Understanding vulnerabilities helps prevent attacks:\n\nCOMMON VULNERABILITIES:\n\n1. Weak Passwords:\n• Short or simple passwords\n• Default passwords unchanged\n• Same password multiple sites\n• Written down insecurely\n• Dictionary words used\n\n2. Unpatched Software:\n• Missing security updates\n• Old operating systems\n• Outdated applications\n• Zero-day vulnerabilities\n• Automatic updates disabled\n\n3. Poor Configuration:\n• Default settings kept\n• Unnecessary services running\n• Open ports not needed\n• Weak encryption used\n• Guest accounts enabled\n\n4. Human Factors:\n• Lack of training\n• Clicking suspicious links\n• Sharing passwords\n• Using unsecured WiFi\n• Installing unauthorized software\n\nPREVENTION METHODS:\n\n1. Technical Controls:\n• Regular updates and patches\n• Strong password policies\n• Multi-factor authentication\n• Encryption of data\n• Firewall configuration\n• Antivirus software\n• Network monitoring\n\n2. Physical Security:\n• Locked server rooms\n• Security cameras\n• Access cards\n• Visitor management\n• Equipment disposal\n\n3. Policies and Training:\n• Security awareness training\n• Acceptable use policies\n• Incident response plans\n• Regular security audits\n• Access control reviews",
+        "section": "1",
+        "subsection": "1.4 Network security",
+        "craigAndDaveVideoId": "X-pJruUqiXE",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "protection-software-methods",
+        "title": "Protective software and methods",
+        "content": "Various software and methods protect networks from threats:\n\nANTIVIRUS SOFTWARE:\n• Scans files for known malware\n• Real-time protection\n• Regular definition updates\n• Quarantines infected files\n• Scheduled full scans\n• Behavioral analysis\n• Email attachment scanning\n\nFIREWALLS:\n• Monitor network traffic\n• Block unauthorized access\n• Rule-based filtering\n• Hardware or software versions\n• Stateful packet inspection\n• Application layer filtering\n• Logs suspicious activity\n\nENCRYPTION:\n• Scrambles data mathematically\n• Only authorized users can decrypt\n• Protects data in transit\n• Protects stored data\n• HTTPS for web traffic\n• VPNs for network traffic\n• Full disk encryption\n\nACCESS CONTROLS:\n• User authentication required\n• Different permission levels\n• Principle of least privilege\n• Regular access reviews\n• Account lockouts\n• Password policies\n• Biometric options\n\nBACKUP SYSTEMS:\n• Regular automated backups\n• 3-2-1 rule (3 copies, 2 media, 1 offsite)\n• Test restore procedures\n• Protect against ransomware\n• Version control\n• Incremental backups\n\nNETWORK MONITORING:\n• Intrusion Detection Systems (IDS)\n• Log analysis\n• Unusual activity alerts\n• Traffic analysis\n• Security Information Event Management (SIEM)",
+        "section": "1",
+        "subsection": "1.4 Network security",
+        "craigAndDaveVideoId": "3YaohSijJ3k",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "physical-security",
+        "title": "Physical security",
+        "content": "Physical security is often overlooked but crucial for network protection:\n\nIMPORTANCE:\n• Best digital security useless if physical access gained\n• Attackers can bypass many controls\n• Install hardware keyloggers\n• Boot from USB devices\n• Steal equipment\n• Access unlocked computers\n\nPHYSICAL THREATS:\n• Theft of equipment\n• Unauthorized access\n• Vandalism\n• Natural disasters\n• Power failures\n• Environmental damage\n• Social engineering\n\nSECURITY MEASURES:\n\n1. Access Control:\n• Locked doors with card/code access\n• Biometric scanners\n• Security guards\n• Visitor badges and escorts\n• Sign-in procedures\n• Restricted area zones\n\n2. Monitoring:\n• CCTV cameras\n• Motion sensors\n• Alarm systems\n• Security patrols\n• Access logs\n• 24/7 monitoring\n\n3. Equipment Security:\n• Cable locks for devices\n• Locked server cabinets\n• Secure disposal procedures\n• Asset tagging\n• Encrypted hard drives\n• BIOS passwords\n\n4. Environmental:\n• Fire suppression systems\n• Temperature control\n• Humidity monitoring\n• Flood detection\n• UPS backup power\n• Generator backup\n\nBEST PRACTICES:\n• Clear desk policy\n• Lock screens when away\n• Secure printing\n• Shred sensitive documents\n• Escort visitors\n• Report suspicious activity",
+        "section": "1",
+        "subsection": "1.4 Network security",
+        "craigAndDaveVideoId": "ARLqVPqD91g",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "operating-system-purpose",
+        "title": "Purpose and functionality of operating systems",
+        "content": "An Operating System (OS) is essential software that manages computer hardware and provides services for application software.\n\nMAIN PURPOSES:\n• Interface between user and hardware\n• Manage hardware resources\n• Provide platform for applications\n• Handle system security\n• Enable multi-tasking\n\nCORE FUNCTIONS:\n\n1. User Interface:\n• Graphical User Interface (GUI) - Windows, icons, menus\n• Command Line Interface (CLI) - Text commands\n• Touch interface - Smartphones, tablets\n• Voice interface - Digital assistants\n\n2. Memory Management:\n• Allocate RAM to programs\n• Virtual memory management\n• Prevent programs accessing each other's memory\n• Memory protection and security\n\n3. Process Management:\n• Run multiple programs (multi-tasking)\n• Allocate CPU time to processes\n• Handle process priorities\n• Inter-process communication\n\n4. File Management:\n• Organize files in directories\n• Control file access permissions\n• Handle file operations (create, delete, copy)\n• Maintain file systems\n\n5. Device Management:\n• Control hardware devices\n• Device drivers interface\n• Handle input/output operations\n• Plug and play functionality\n\nEXAMPLES:\n• Desktop: Windows, macOS, Linux\n• Mobile: Android, iOS\n• Server: Windows Server, Linux distributions\n• Embedded: Real-time OS (RTOS)",
+        "section": "1",
+        "subsection": "1.5 Systems software",
+        "craigAndDaveVideoId": "5kWfirgp0K8",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "operating-system-types",
+        "title": "Types of operating system",
+        "content": "Different types of operating systems serve different purposes:\n\n1. DESKTOP OPERATING SYSTEMS:\n• Windows - Most common, user-friendly\n• macOS - Apple computers, creative focus\n• Linux - Open source, customizable\n• Features: GUI, multitasking, device support\n• Used for: Personal computing, office work\n\n2. MOBILE OPERATING SYSTEMS:\n• Android - Open source, Google\n• iOS - Apple devices only\n• Optimized for touch input\n• Power efficiency important\n• App stores for software\n\n3. SERVER OPERATING SYSTEMS:\n• Windows Server\n• Linux distributions (Ubuntu Server, Red Hat)\n• No GUI often (headless)\n• Optimized for stability\n• Handle multiple users\n• Network services focus\n\n4. EMBEDDED OPERATING SYSTEMS:\n• Real-Time OS (RTOS)\n• Very specific purpose\n• Limited resources\n• Fast response times\n• Examples: Cars, washing machines, routers\n\n5. MULTI-USER vs SINGLE-USER:\n• Multi-user: Multiple accounts, permissions\n• Single-user: One user at a time\n• Most modern OS are multi-user\n\n6. MULTI-TASKING vs SINGLE-TASKING:\n• Multi-tasking: Run multiple programs\n• Single-tasking: One program at a time\n• All modern OS multi-task\n\nCHOOSING AN OS:\n• Hardware compatibility\n• Software requirements\n• User expertise\n• Cost considerations\n• Security needs\n• Performance requirements",
+        "section": "1",
+        "subsection": "1.5 Systems software",
+        "craigAndDaveVideoId": "7jYkMA9XOBI",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "user-interface",
+        "title": "User interfaces",
+        "content": "The user interface is how humans interact with computers. Different interfaces suit different needs:\n\nGRAPHICAL USER INTERFACE (GUI):\n• Visual elements: windows, icons, menus, pointers (WIMP)\n• Mouse and keyboard interaction\n• Intuitive for beginners\n• Drag and drop functionality\n• Multiple windows open\n\nAdvantages:\n• Easy to learn and use\n• Visual feedback\n• Multitasking visible\n• Consistent interface\n• Help readily available\n\nDisadvantages:\n• Uses more system resources\n• Slower for some tasks\n• Requires graphics hardware\n• Can be restrictive\n\nCOMMAND LINE INTERFACE (CLI):\n• Text-based commands\n• Keyboard input only\n• Direct computer control\n• Powerful for experts\n\nAdvantages:\n• Very fast for experts\n• Precise control\n• Scriptable/automatable\n• Low resource usage\n• Remote access easy\n\nDisadvantages:\n• Steep learning curve\n• Commands must be memorized\n• No visual feedback\n• Errors easily made\n• Intimidating for beginners\n\nOTHER INTERFACES:\n• Natural Language - Voice commands (Alexa, Siri)\n• Touch/Gesture - Smartphones, tablets\n• Menu-driven - ATMs, information kiosks\n\nCHOOSING INTERFACES:\n• User expertise level\n• Task requirements\n• Hardware available\n• Efficiency needs\n• Accessibility requirements",
+        "section": "1",
+        "subsection": "1.5 Systems software",
+        "craigAndDaveVideoId": "ouUlJixm0wo",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "memory-management",
+        "title": "Memory management",
+        "content": "The operating system must carefully manage computer memory (RAM) to run programs efficiently:\n\nMEMORY MANAGEMENT TASKS:\n\n1. Allocation:\n• Assign memory to programs when loaded\n• Track which memory is in use\n• Allocate appropriate amounts\n• Prevent memory conflicts\n\n2. Protection:\n• Prevent programs accessing others' memory\n• Security boundaries\n• Crash isolation\n• Data protection\n\n3. Virtual Memory:\n• Use hard disk as extension of RAM\n• Swap unused data to disk\n• Page files/swap files\n• Allows running large programs\n• Performance impact when overused\n\n4. Paging:\n• Divide memory into fixed-size pages\n• Pages can be in RAM or on disk\n• Page table tracks locations\n• Transparent to programs\n\n5. Memory Optimization:\n• Defragmentation of memory\n• Garbage collection\n• Memory compression\n• Caching frequently used data\n\nMEMORY ORGANIZATION:\n• Programs loaded into memory\n• Each program gets memory space\n• OS kernel protected area\n• Shared libraries efficiency\n• Buffer areas for I/O\n\nCOMMON ISSUES:\n• Memory leaks - programs not releasing memory\n• Out of memory errors\n• Thrashing - excessive paging\n• Fragmentation - wasted space\n\nBEST PRACTICES:\n• Close unused programs\n• Monitor memory usage\n• Adequate RAM for tasks\n• Regular restarts can help",
+        "section": "1",
+        "subsection": "1.5 Systems software",
+        "craigAndDaveVideoId": "eSPKDKpkHQU",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "multitasking",
+        "title": "Multitasking",
+        "content": "Multitasking allows computers to run multiple programs simultaneously, though the CPU can only execute one instruction at a time:\n\nHOW IT WORKS:\n• CPU switches between programs rapidly\n• Each program gets time slices\n• Switching happens so fast it appears simultaneous\n• OS scheduler manages the process\n\nTYPES OF MULTITASKING:\n\n1. Pre-emptive Multitasking:\n• OS controls task switching\n• Programs can't monopolize CPU\n• Modern OS use this method\n• More stable and responsive\n\n2. Cooperative Multitasking:\n• Programs voluntarily yield control\n• One bad program can freeze system\n• Older systems used this\n• Less reliable\n\nPROCESS SCHEDULING:\n• Round-robin - equal time slices\n• Priority-based - important tasks first\n• Shortest job first\n• Multi-level feedback queues\n\nBENEFITS:\n• Run multiple applications\n• Better resource utilization\n• Improved productivity\n• Background tasks possible\n• Responsive user experience\n\nCHALLENGES:\n• Context switching overhead\n• Memory requirements increase\n• Complexity in programming\n• Resource conflicts possible\n• Synchronization issues\n\nREAL EXAMPLES:\n• Listening to music while browsing\n• Downloads in background\n• Multiple browser tabs\n• System updates while working\n• Antivirus scanning",
+        "section": "1",
+        "subsection": "1.5 Systems software",
+        "craigAndDaveVideoId": "Y3Kp7sHiK90",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "peripheral-device-management",
+        "title": "Peripheral management and drivers",
+        "content": "The OS manages all peripheral devices connected to the computer through device drivers:\n\nDEVICE DRIVERS:\n• Software that allows OS to communicate with hardware\n• Translates OS commands to device-specific instructions\n• Each device needs appropriate driver\n• Acts as interpreter between OS and hardware\n\nDRIVER FUNCTIONS:\n• Initialize devices on startup\n• Handle data transfer\n• Manage device settings\n• Error handling\n• Power management\n• Provide device-specific features\n\nTYPES OF PERIPHERALS:\n• Input devices - keyboard, mouse, scanner\n• Output devices - monitor, printer, speakers\n• Storage devices - external drives, USB sticks\n• Network devices - network cards, WiFi adapters\n• Specialized - graphics tablets, game controllers\n\nDRIVER INSTALLATION:\n• Plug and Play - automatic detection\n• Manual installation from disk/download\n• Windows Update/Device Manager\n• Manufacturer websites\n• Generic drivers vs specific\n\nCOMMON ISSUES:\n• Missing drivers - device won't work\n• Outdated drivers - poor performance\n• Incompatible drivers - system crashes\n• Driver conflicts - blue screens\n\nBEST PRACTICES:\n• Keep drivers updated\n• Download from official sources\n• Create restore point before updating\n• Check compatibility\n• Uninstall old drivers properly\n\nDEVICE MANAGEMENT:\n• Hot-swapping support\n• Power management\n• Resource allocation (IRQ, DMA)\n• Device status monitoring",
+        "section": "1",
+        "subsection": "1.5 Systems software",
+        "craigAndDaveVideoId": "O8xNqGinUTQ",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "user-management",
+        "title": "User management",
+        "content": "Modern operating systems support multiple users with different privileges and settings:\n\nUSER ACCOUNTS:\n• Each user has unique account\n• Username and password\n• Personal settings and files\n• Separate desktop environment\n• Privacy between users\n\nTYPES OF ACCOUNTS:\n\n1. Administrator:\n• Full system control\n• Install/remove software\n• Change system settings\n• Manage other users\n• Access all files\n• Should be used carefully\n\n2. Standard User:\n• Limited permissions\n• Can't change system settings\n• Can't install some software\n• Own files access only\n• Safer for daily use\n\n3. Guest Account:\n• Temporary access\n• Very limited permissions\n• No permanent files\n• Good for visitors\n\nUSER MANAGEMENT FEATURES:\n• Create/delete accounts\n• Password policies\n• Access control lists\n• User groups\n• Parental controls\n• Login restrictions\n• Audit trails\n\nFILE PERMISSIONS:\n• Read - view file contents\n• Write - modify files\n• Execute - run programs\n• Delete - remove files\n• Owner/group/others model\n\nSECURITY BENEFITS:\n• Isolation between users\n• Personalized experience\n• Accountability\n• Access control\n• Data protection\n• System integrity",
+        "section": "1",
+        "subsection": "1.5 Systems software",
+        "craigAndDaveVideoId": "5IdfPx4CmNs",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "file-management",
+        "title": "File management",
+        "content": "The operating system provides a structured way to store and organize files:\n\nFILE SYSTEM FUNCTIONS:\n• Create, read, update, delete files\n• Organize in folders/directories\n• Set permissions and attributes\n• Track file locations on disk\n• Handle file naming\n\nFILE ORGANIZATION:\n• Hierarchical structure (tree)\n• Root directory at top\n• Folders contain files/subfolders\n• Path shows location\n• Different drives/partitions\n\nFILE ATTRIBUTES:\n• Name and extension\n• Size in bytes\n• Creation/modified dates\n• Permissions (read/write/execute)\n• Hidden/system flags\n• Owner information\n\nCOMMON FILE OPERATIONS:\n• Copy - duplicate files\n• Move - change location\n• Rename - change name\n• Delete - remove files\n• Search - find files\n• Compress - reduce size\n• Encrypt - secure files\n\nFILE EXTENSIONS:\n• .txt - text files\n• .docx - Word documents\n• .jpg/.png - images\n• .mp3/.mp4 - media\n• .exe - programs\n• .zip - compressed\n\nFILE SYSTEMS:\n• NTFS (Windows)\n• ext4 (Linux)\n• APFS (macOS)\n• FAT32 (universal)\n• Each has different features\n\nBEST PRACTICES:\n• Organized folder structure\n• Meaningful file names\n• Regular backups\n• Don't delete system files\n• Use appropriate permissions",
+        "section": "1",
+        "subsection": "1.5 Systems software",
+        "craigAndDaveVideoId": "LzIxkkKxPaU",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "utility-software",
+        "title": "Utility software",
+        "content": "Utility software helps maintain and optimize computer systems:\n\nCOMMON UTILITIES:\n\n1. File Compression:\n• Reduces file sizes\n• ZIP, RAR formats\n• Easier storage/transfer\n• Multiple files in one\n• Can include encryption\n• Examples: WinZip, 7-Zip\n\n2. Disk Defragmentation:\n• Reorganizes fragmented files\n• Improves disk performance\n• Reduces access time\n• Not needed for SSDs\n• Should run regularly on HDDs\n• Built into Windows\n\n3. Antivirus Software:\n• Protects against malware\n• Real-time scanning\n• Regular updates essential\n• Quarantine infected files\n• Examples: Norton, McAfee, Windows Defender\n\n4. Backup Software:\n• Copies important files\n• Scheduled backups\n• Full/incremental options\n• Cloud or local storage\n• Version history\n• Examples: Time Machine, Windows Backup\n\n5. Disk Cleanup:\n• Removes temporary files\n• Clears browser cache\n• Empties recycle bin\n• Frees disk space\n• Improves performance\n\n6. Registry Cleaners:\n• Fix Windows registry errors\n• Remove orphaned entries\n• Can improve stability\n• Use with caution\n\n7. System Monitors:\n• Show CPU/memory usage\n• Network activity\n• Temperature monitoring\n• Performance analysis\n\nIMPORTANCE:\n• Keep system running smoothly\n• Prevent problems\n• Recover from issues\n• Optimize performance\n• Protect data",
+        "section": "1",
+        "subsection": "1.5 Systems software",
+        "craigAndDaveVideoId": "hHZZVrb2s0M",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "ethical-issues",
+        "title": "Ethical issues",
+        "content": "Technology raises many ethical questions about what is right and wrong:\n\nPRIVACY CONCERNS:\n• Data collection by companies\n• Surveillance and monitoring\n• Location tracking\n• Facial recognition\n• Right to be forgotten\n• Consent for data use\n\nDIGITAL DIVIDE:\n• Inequality in technology access\n• Rural vs urban connectivity\n• Developing vs developed countries\n• Educational disadvantages\n• Economic opportunities limited\n• Social exclusion\n\nAUTOMATION AND JOBS:\n• AI replacing human workers\n• Skill requirements changing\n• Unemployment concerns\n• Need for retraining\n• Income inequality\n• Universal basic income debates\n\nSOCIAL MEDIA ETHICS:\n• Cyberbullying and trolling\n• Fake news spread\n• Echo chambers\n• Mental health impacts\n• Addiction concerns\n• Children's safety online\n\nAI AND ALGORITHMS:\n• Bias in decision making\n• Transparency issues\n• Accountability questions\n• Autonomous weapons\n• Deepfakes\n• Privacy invasion\n\nHEALTH AND WELLBEING:\n• Screen time effects\n• Gaming addiction\n• Sleep disruption\n• Physical health (posture, RSI)\n• Social isolation\n• Work-life balance\n\nETHICAL FRAMEWORKS:\n• Consider all stakeholders\n• Long-term consequences\n• Fairness and justice\n• Respect for persons\n• Do no harm principle",
+        "section": "1",
+        "subsection": "1.6 Ethical, legal, cultural and environmental impacts of digital technology",
+        "craigAndDaveVideoId": "I-Uq1gd6r8I",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "legal-issues",
+        "title": "Legal issues",
+        "content": "Various laws govern the use of technology and data:\n\nDATA PROTECTION ACT 2018 / GDPR:\n• Protects personal data\n• Rights for individuals:\n  - Access their data\n  - Correct errors\n  - Delete data\n  - Data portability\n• Organizations must:\n  - Process data lawfully\n  - Keep data secure\n  - Not keep longer than needed\n  - Be transparent\n• Large fines for breaches\n\nCOMPUTER MISUSE ACT 1990:\n• Makes hacking illegal\n• Three main offenses:\n  1. Unauthorized access\n  2. Unauthorized access with intent\n  3. Unauthorized modification\n• Covers viruses and DDoS\n• Prison sentences possible\n\nCOPYRIGHT, DESIGNS AND PATENTS ACT 1988:\n• Protects creative works\n• Automatic protection\n• Covers software, music, images\n• Fair use exceptions\n• Educational use allowed\n• Piracy is illegal\n\nFREEDOM OF INFORMATION ACT 2000:\n• Public access to information\n• Government transparency\n• Some exemptions\n• Request procedures\n\nCREATIVE COMMONS:\n• Alternative to copyright\n• Different license types\n• Share with conditions\n• Attribution requirements\n\nOTHER LEGAL ISSUES:\n• Online contracts\n• Digital signatures\n• Cybercrime laws\n• Export controls\n• Age verification\n• Online gambling",
+        "section": "1",
+        "subsection": "1.6 Ethical, legal, cultural and environmental impacts of digital technology",
+        "craigAndDaveVideoId": "Psp-1S5kucw",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "cultural-issues",
+        "title": "Cultural issues",
+        "content": "Technology impacts cultures and societies in profound ways:\n\nGLOBALIZATION:\n• Internet connects cultures\n• Cultural exchange increased\n• Language barriers reduced\n• Western culture dominance\n• Local traditions threatened\n• Cultural homogenization\n\nDIGITAL COMMUNICATION:\n• Changed how we interact\n• Emoji as universal language\n• Video calls connect families\n• Text replacing voice calls\n• Always connected culture\n• Response time expectations\n\nSOCIAL CHANGES:\n• Online communities form\n• Traditional media declining\n• Influencer culture\n• Cancel culture debates\n• Online dating normalized\n• Remote work culture\n\nEDUCATIONAL IMPACT:\n• Online learning platforms\n• Access to global knowledge\n• Skills gap emerging\n• Traditional teaching challenged\n• Personalized learning\n• Digital literacy essential\n\nCULTURAL PRESERVATION:\n• Digital archives\n• Language preservation\n• Virtual museums\n• Cultural heritage online\n• Indigenous knowledge\n• Historical records\n\nGENERATIONAL DIFFERENCES:\n• Digital natives vs immigrants\n• Technology adoption rates\n• Communication preferences\n• Privacy expectations\n• Work culture changes\n• Entertainment choices\n\nCHALLENGES:\n• Cultural sensitivity online\n• Censorship variations\n• Religious considerations\n• Gender digital gaps\n• Accessibility needs",
+        "section": "1",
+        "subsection": "1.6 Ethical, legal, cultural and environmental impacts of digital technology",
+        "craigAndDaveVideoId": "3nRBboC5wG8",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "environmental-issues",
+        "title": "Environmental issues",
+        "content": "Technology has significant environmental impacts that must be considered:\n\nE-WASTE:\n• Fastest growing waste stream\n• Toxic materials (lead, mercury)\n• Only 20% properly recycled\n• Exported to developing countries\n• Health hazards\n• Precious metals wasted\n\nENERGY CONSUMPTION:\n• Data centers use 1% of global electricity\n• Cryptocurrency mining energy\n• Device manufacturing energy\n• Always-on culture\n• Standby power drain\n• Cooling requirements\n\nCARBON FOOTPRINT:\n• Manufacturing emissions\n• Transportation of goods\n• Internet infrastructure\n• Cloud storage impact\n• Video streaming emissions\n• Email carbon cost\n\nRESOURCE DEPLETION:\n• Rare earth elements\n• Conflict minerals\n• Water usage in manufacturing\n• Mining environmental damage\n• Limited resources\n• Recycling challenges\n\nPOSITIVE IMPACTS:\n• Remote work reduces travel\n• Digital documents save paper\n• Smart grids improve efficiency\n• Environmental monitoring\n• Precision agriculture\n• Green technology development\n\nSOLUTIONS:\n• Circular economy\n• Right to repair\n• Energy-efficient designs\n• Renewable energy use\n• Longer device lifespans\n• Better recycling programs\n• Consumer awareness\n• Green computing practices",
+        "section": "1",
+        "subsection": "1.6 Ethical, legal, cultural and environmental impacts of digital technology",
+        "craigAndDaveVideoId": "tO3wMEJJlcg",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "privacy-issues",
+        "title": "Privacy issues",
+        "content": "Digital technology creates unprecedented privacy challenges:\n\nDATA COLLECTION:\n• Websites track browsing\n• Apps collect location data\n• Smart devices always listening\n• Cameras everywhere\n• Biometric data gathered\n• Behavioral analytics\n\nPERSONAL INFORMATION RISKS:\n• Identity theft\n• Financial fraud\n• Stalking/harassment\n• Discrimination\n• Manipulation\n• Blackmail\n\nCORPORATE SURVEILLANCE:\n• Targeted advertising\n• Data brokers\n• Profile building\n• Cross-device tracking\n• Third-party sharing\n• Terms of service issues\n\nGOVERNMENT SURVEILLANCE:\n• Mass data collection\n• Facial recognition\n• License plate readers\n• Internet monitoring\n• Phone metadata\n• Social media monitoring\n\nPRIVACY PROTECTION:\n• VPN usage\n• Encryption tools\n• Privacy settings\n• Ad blockers\n• Anonymous browsing\n• Data minimization\n\nRIGHTS AND REGULATIONS:\n• Right to privacy\n• Data protection laws\n• Consent requirements\n• Transparency obligations\n• Right to deletion\n• Data breach notifications\n\nBALANCING ACTS:\n• Security vs privacy\n• Convenience vs protection\n• Free services vs data\n• Innovation vs regulation\n• Public safety vs rights",
+        "section": "1",
+        "subsection": "1.6 Ethical, legal, cultural and environmental impacts of digital technology",
+        "craigAndDaveVideoId": "FT-lCrXL_0g",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "stakeholders",
+        "title": "Stakeholders",
+        "content": "Many different groups have interests in how technology is developed and used:\n\nKEY STAKEHOLDERS:\n\n1. USERS/CONSUMERS:\n• Want useful products\n• Privacy protection\n• Fair pricing\n• Good user experience\n• Safety and security\n• Customer support\n\n2. TECHNOLOGY COMPANIES:\n• Profit maximization\n• Market share\n• Innovation\n• Competitive advantage\n• Regulatory compliance\n• Brand reputation\n\n3. GOVERNMENTS:\n• National security\n• Economic growth\n• Citizen protection\n• Tax revenue\n• Law enforcement\n• Public services\n\n4. EMPLOYEES:\n• Job security\n• Fair wages\n• Safe working conditions\n• Skills development\n• Work-life balance\n• Career advancement\n\n5. SOCIETY:\n• Public benefit\n• Ethical development\n• Environmental protection\n• Equal access\n• Cultural preservation\n• Future generations\n\n6. SHAREHOLDERS:\n• Return on investment\n• Company growth\n• Risk management\n• Sustainable practices\n• Corporate governance\n\nCONFLICTING INTERESTS:\n• Privacy vs convenience\n• Profit vs ethics\n• Innovation vs regulation\n• Security vs freedom\n• Efficiency vs employment\n• Growth vs environment\n\nBALANCING STAKEHOLDERS:\n• Consultation processes\n• Ethical frameworks\n• Regulation\n• Corporate responsibility\n• Public pressure\n• Market forces",
+        "section": "1",
+        "subsection": "1.6 Ethical, legal, cultural and environmental impacts of digital technology",
+        "craigAndDaveVideoId": "Yb8S9rXA0vI",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "computational-thinking",
+        "title": "Computational thinking",
+        "content": "Computational thinking is a problem-solving approach that uses computer science techniques:\n\nDECOMPOSITION:\n• Breaking complex problems into smaller parts\n• Each part easier to solve\n• Parts can be developed separately\n• Example: Building a game\n  - Graphics engine\n  - Physics system\n  - User interface\n  - Sound system\n• Makes problems manageable\n\nPATTERN RECOGNITION:\n• Identifying similarities or patterns\n• Reuse solutions\n• Spot trends in data\n• Example: Password validation\n  - All need length check\n  - All need character checks\n  - Can reuse same code\n• Saves time and effort\n\nABSTRACTION:\n• Removing unnecessary detail\n• Focus on important aspects\n• Simplify complex systems\n• Example: Map applications\n  - Don't show every tree\n  - Show roads and landmarks\n  - Hide complexity\n• Makes problems solvable\n\nALGORITHMS:\n• Step-by-step instructions\n• Precise and unambiguous\n• Solve specific problems\n• Can be implemented as code\n• Example: Making tea\n  1. Boil water\n  2. Add tea bag to cup\n  3. Pour water\n  4. Wait 3 minutes\n  5. Remove tea bag\n  6. Add milk/sugar\n\nBENEFITS:\n• Systematic approach\n• Efficient solutions\n• Reusable methods\n• Clear thinking\n• Problem solving skills",
+        "section": "2",
+        "subsection": "2.1 Algorithms",
+        "craigAndDaveVideoId": "tuBVZ7buJTQ",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "algorithm-design",
+        "title": "Designing algorithms",
+        "content": "Creating effective algorithms requires careful planning and clear thinking:\n\nALGORITHM CHARACTERISTICS:\n• Clear and unambiguous\n• Step-by-step instructions\n• Finite number of steps\n• Produces output\n• Solves a specific problem\n• Can be followed by human or computer\n\nDESIGN PRINCIPLES:\n\n1. Understand the Problem:\n• What are the inputs?\n• What output is needed?\n• What are the constraints?\n• Any special cases?\n\n2. Plan the Solution:\n• Break into smaller steps\n• Consider different approaches\n• Think about efficiency\n• Handle errors\n\n3. Write Clear Steps:\n• Use simple language\n• One action per step\n• Logical order\n• No ambiguity\n\nCOMMON STRUCTURES:\n• Sequence - steps in order\n• Selection - IF/THEN decisions\n• Iteration - loops/repetition\n• Function calls - reusable blocks\n\nEXAMPLE: Find largest number\n1. Set first number as largest\n2. For each remaining number:\n   a. If number > largest\n   b. Set number as new largest\n3. Output largest\n\nTESTING ALGORITHMS:\n• Trace through with data\n• Test edge cases\n• Check for errors\n• Verify output correct\n• Consider efficiency\n\nIMPROVEMENT:\n• Remove redundant steps\n• Combine similar operations\n• Optimize loops\n• Handle more cases",
+        "section": "2",
+        "subsection": "2.1 Algorithms",
+        "craigAndDaveVideoId": "kM9ASKAni_s",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "searching-algorithms",
+        "title": "Searching algorithms",
+        "content": "Searching algorithms find specific items in a collection of data:\n\nLINEAR SEARCH:\n\nHow it works:\n• Start at beginning\n• Check each item in turn\n• Stop when found or end reached\n• Works on any list\n\nAlgorithm:\n1. Start at first item\n2. If item = target, return position\n3. Move to next item\n4. Repeat until found or end\n5. If not found, return -1\n\nAdvantages:\n• Simple to implement\n• Works on unsorted data\n• Good for small datasets\n• Finds first occurrence\n\nDisadvantages:\n• Slow for large datasets\n• O(n) time complexity\n• Checks unnecessary items\n\nBINARY SEARCH:\n\nHow it works:\n• Only works on SORTED data\n• Divide and conquer approach\n• Eliminates half each time\n• Much faster than linear\n\nAlgorithm:\n1. Find middle item\n2. If middle = target, done\n3. If target < middle, search left half\n4. If target > middle, search right half\n5. Repeat until found or not possible\n\nAdvantages:\n• Very fast - O(log n)\n• Efficient for large datasets\n• Predictable performance\n\nDisadvantages:\n• Data must be sorted first\n• More complex to implement\n• Can't find all occurrences easily\n\nCOMPARISON:\n• 1,000 items: Linear avg 500, Binary max 10\n• 1,000,000 items: Linear avg 500,000, Binary max 20",
+        "section": "2",
+        "subsection": "2.1 Algorithms",
+        "craigAndDaveVideoId": "h3iNEqnJtZY",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "sorting-algorithms",
+        "title": "Sorting algorithms",
+        "content": "Sorting algorithms arrange data in order (ascending or descending):\n\nBUBBLE SORT:\n\nHow it works:\n• Compare adjacent items\n• Swap if in wrong order\n• Repeat until no swaps needed\n• Larger values 'bubble up'\n\nAlgorithm:\n1. Start at beginning\n2. Compare first two items\n3. Swap if needed\n4. Move to next pair\n5. Repeat to end of list\n6. If swaps made, repeat from start\n7. Stop when no swaps\n\nExample: [5,3,8,2]\n• Pass 1: [3,5,2,8]\n• Pass 2: [3,2,5,8]\n• Pass 3: [2,3,5,8]\n• Done!\n\nAdvantages:\n• Simple to understand\n• Easy to implement\n• In-place (no extra memory)\n• Stable sort\n\nDisadvantages:\n• Very slow - O(n²)\n• Many unnecessary comparisons\n• Poor for large datasets\n\nMERGE SORT:\n\nHow it works:\n• Divide and conquer\n• Split list in half repeatedly\n• Merge sorted halves\n• Recursive approach\n\nAlgorithm:\n1. If list has 1 item, it's sorted\n2. Split list in half\n3. Merge sort each half\n4. Merge the sorted halves\n\nExample: [5,3,8,2]\n• Split: [5,3] [8,2]\n• Split: [5][3] [8][2]\n• Merge: [3,5] [2,8]\n• Merge: [2,3,5,8]\n\nAdvantages:\n• Fast - O(n log n)\n• Predictable performance\n• Good for large datasets\n\nDisadvantages:\n• Uses extra memory\n• More complex code\n• Overkill for small lists",
+        "section": "2",
+        "subsection": "2.1 Algorithms",
+        "craigAndDaveVideoId": "h8eyY7dIiN4",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "insertion-sort",
+        "title": "Insertion sort",
+        "content": "Insertion sort builds a sorted list one item at a time:\n\nHOW IT WORKS:\n• Like sorting playing cards in hand\n• Take one item at a time\n• Insert into correct position\n• Sorted portion grows\n\nALGORITHM:\n1. Start with second item\n2. Compare with items before it\n3. Shift larger items right\n4. Insert item in gap\n5. Move to next item\n6. Repeat until end\n\nEXAMPLE: [5,3,8,2]\n• Start: [5|3,8,2] (| shows sorted boundary)\n• Insert 3: [3,5|8,2]\n• Insert 8: [3,5,8|2]\n• Insert 2: [2,3,5,8]\n\nDETAILED TRACE:\n• [5,3,8,2] - Original\n• [5,3,8,2] - Take 3\n• [5,5,8,2] - Shift 5 right\n• [3,5,8,2] - Insert 3\n• [3,5,8,2] - Take 8 (already in place)\n• [3,5,8,2] - Take 2\n• [3,5,8,8] - Shift 8\n• [3,5,5,8] - Shift 5\n• [3,3,5,8] - Shift 3\n• [2,3,5,8] - Insert 2\n\nADVANTAGES:\n• Simple implementation\n• Efficient for small datasets\n• Good for nearly sorted data\n• In-place sorting\n• Stable (maintains order)\n• Online (can sort as receiving)\n\nDISADVANTAGES:\n• Slow for large datasets - O(n²)\n• Many shifts needed\n• Not suitable for big data\n\nBEST USE:\n• Small datasets\n• Nearly sorted data\n• Real-time systems\n• Adding to sorted list",
+        "section": "2",
+        "subsection": "2.1 Algorithms",
+        "craigAndDaveVideoId": "JU767SDMDvA",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "flowcharts",
+        "title": "Flowcharts",
+        "content": "Flowcharts are visual representations of algorithms using standard symbols:\n\nFLOWCHART SYMBOLS:\n\n1. Terminal (Oval):\n• Start and End points\n• Only one Start\n• Can have multiple Ends\n\n2. Process (Rectangle):\n• Actions or calculations\n• E.g., 'Add 1 to counter'\n• Single operation\n\n3. Input/Output (Parallelogram):\n• Getting input from user\n• Displaying output\n• E.g., 'INPUT age'\n\n4. Decision (Diamond):\n• Yes/No questions\n• Two exits (Yes and No)\n• E.g., 'Is age > 18?'\n\n5. Flow Lines (Arrows):\n• Show direction\n• Connect symbols\n• Must be clear\n\nFLOWCHART RULES:\n• One Start symbol\n• Clear flow direction\n• All paths must end\n• No crossing lines (use bridges)\n• Decisions have two exits\n• Keep it simple\n\nADVANTAGES:\n• Visual representation\n• Easy to follow\n• Good for planning\n• Language independent\n• Shows program flow\n• Identifies decision points\n\nDISADVANTAGES:\n• Can become complex\n• Time-consuming to draw\n• Difficult to modify\n• Not good for large programs\n\nEXAMPLE: Password checker\n1. START\n2. INPUT password\n3. Is length >= 8?\n4. If No: OUTPUT 'Too short', go to 2\n5. If Yes: OUTPUT 'Valid'\n6. END",
+        "section": "2",
+        "subsection": "2.1 Algorithms",
+        "craigAndDaveVideoId": "SWRDqTx8d4k",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "pseudocode",
+        "title": "Pseudocode",
+        "content": "Pseudocode is a structured way to write algorithms in plain English:\n\nWHAT IS PSEUDOCODE:\n• Not a real programming language\n• Human-readable algorithm description\n• Bridge between idea and code\n• No strict syntax rules\n• Focus on logic not syntax\n\nCOMMON CONVENTIONS:\n\nInput/Output:\n• INPUT variableName\n• OUTPUT message or variable\n• PRINT can also be used\n\nVariables:\n• variableName ← value\n• SET variableName TO value\n\nSelection:\n• IF condition THEN\n•   statements\n• ELSE\n•   statements\n• ENDIF\n\nIteration:\n• FOR counter ← 1 TO 10\n•   statements\n• NEXT counter\n\n• WHILE condition\n•   statements\n• ENDWHILE\n\n• REPEAT\n•   statements\n• UNTIL condition\n\nEXAMPLE: Find average\n```\nINPUT numberOfValues\ntotal ← 0\nFOR count ← 1 TO numberOfValues\n  INPUT value\n  total ← total + value\nNEXT count\naverage ← total / numberOfValues\nOUTPUT average\n```\n\nBENEFITS:\n• Easy to understand\n• Quick to write\n• Language independent\n• Good for planning\n• Easy to convert to code\n• No syntax errors\n\nTIPS:\n• Use meaningful names\n• Indent for clarity\n• Be consistent\n• Keep it simple\n• Comment complex parts",
+        "section": "2",
+        "subsection": "2.1 Algorithms",
+        "craigAndDaveVideoId": "eSYeHlwDCNA",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "trace-tables",
+        "title": "Trace tables",
+        "content": "Trace tables track variable values through an algorithm's execution:\n\nWHAT ARE TRACE TABLES:\n• Step-by-step tracking\n• Shows variable changes\n• Helps debug algorithms\n• Verifies correctness\n• Manual execution\n\nHOW TO CREATE:\n1. List all variables as columns\n2. Add line number column\n3. Add output column if needed\n4. Work through algorithm\n5. Record changes only\n6. Show final values\n\nEXAMPLE ALGORITHM:\n```\n1. x ← 5\n2. y ← 3\n3. z ← x + y\n4. x ← x + 1\n5. IF x > z THEN\n6.   OUTPUT 'Greater'\n7. ELSE\n8.   OUTPUT 'Not greater'\n9. ENDIF\n```\n\nTRACE TABLE:\n| Line | x | y | z | Output |\n|------|---|---|---|--------|\n| 1    | 5 |   |   |        |\n| 2    |   | 3 |   |        |\n| 3    |   |   | 8 |        |\n| 4    | 6 |   |   |        |\n| 5    |   |   |   |        |\n| 8    |   |   |   | Not greater |\n\nCOMPLEX EXAMPLE WITH LOOP:\n```\n1. total ← 0\n2. FOR i ← 1 TO 3\n3.   total ← total + i\n4. NEXT i\n5. OUTPUT total\n```\n\n| Line | i | total | Output |\n|------|---|-------|--------|\n| 1    |   | 0     |        |\n| 2    | 1 |       |        |\n| 3    |   | 1     |        |\n| 2    | 2 |       |        |\n| 3    |   | 3     |        |\n| 2    | 3 |       |        |\n| 3    |   | 6     |        |\n| 5    |   |       | 6      |\n\nUSES:\n• Find logic errors\n• Understand algorithms\n• Verify output\n• Exam questions\n• Teaching tool",
+        "section": "2",
+        "subsection": "2.1 Algorithms",
+        "craigAndDaveVideoId": "BnA0ENHYY3s",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "variables-constants",
+        "title": "Variables and constants",
+        "content": "Variables and constants are fundamental to programming - they store data that programs can use:\n\nVARIABLES:\n• Named memory locations\n• Store values that can change\n• Must be declared before use\n• Have a data type\n• Follow naming rules\n\nExample:\n```\nage = 16\nname = 'Alice'\nage = 17  # Can change\n```\n\nCONSTANTS:\n• Values that don't change\n• Set once, used many times\n• Makes code maintainable\n• Usually in CAPITALS\n• Prevents accidental changes\n\nExample:\n```\nPI = 3.14159\nVAT_RATE = 0.20\nMAX_ATTEMPTS = 3\n```\n\nNAMING RULES:\n• Start with letter or underscore\n• No spaces (use underscore)\n• No reserved words\n• Case sensitive\n• Meaningful names\n\nGood names:\n• userName\n• total_score\n• isGameOver\n\nBad names:\n• x (too vague)\n• 2ndPlace (starts with number)\n• my-var (hyphen not allowed)\n\nSCOPE:\n• Global - accessible everywhere\n• Local - only in function/block\n• Parameters - passed to functions\n\nBENEFITS:\n• Store data for reuse\n• Make code readable\n• Easy to modify\n• Reduce errors\n• Enable calculations",
+        "section": "2",
+        "subsection": "2.2 Programming fundamentals",
+        "craigAndDaveVideoId": "Z_xjlhvuw7k",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "data-types",
+        "title": "Data types",
+        "content": "Different data types store different kinds of information:\n\nPRIMITIVE DATA TYPES:\n\n1. INTEGER (int):\n• Whole numbers\n• Positive or negative\n• No decimal places\n• Examples: 42, -17, 0, 1000\n• Uses: Counting, age, scores\n\n2. REAL/FLOAT:\n• Decimal numbers\n• Positive or negative\n• Precision limitations\n• Examples: 3.14, -0.5, 99.99\n• Uses: Measurements, money, averages\n\n3. BOOLEAN (bool):\n• True or False only\n• Yes/No decisions\n• 1 or 0 internally\n• Examples: True, False\n• Uses: Flags, conditions, states\n\n4. CHARACTER (char):\n• Single character\n• Letters, digits, symbols\n• In quotes: 'A', '7', '!'\n• Uses: Grades, choices, symbols\n\n5. STRING (str):\n• Text - sequence of characters\n• In quotes: \"Hello\", 'World'\n• Can be empty: \"\"\n• Uses: Names, messages, input\n\nTYPE CONVERSION:\n• String to Integer: int(\"123\")\n• Integer to String: str(123)\n• String to Float: float(\"3.14\")\n• Must be valid conversion\n\nTYPE CHECKING:\n• type(variable) shows type\n• Important for validation\n• Prevents errors\n\nCHOOSING TYPES:\n• Age: Integer\n• Price: Float\n• Name: String\n• Is_member: Boolean\n• Grade: Character",
         "section": "2",
         "subsection": "2.2 Programming fundamentals",
         "craigAndDaveVideoId": "BplC42s5I_s",
-        "notionPageUrl": "https://www.notion.so/placeholder"
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "operators",
+        "title": "Operators",
+        "content": "Operators perform operations on values and variables:\n\nARITHMETIC OPERATORS:\n• + Addition (5 + 3 = 8)\n• - Subtraction (5 - 3 = 2)\n• * Multiplication (5 * 3 = 15)\n• / Division (10 / 3 = 3.333...)\n• // Integer Division (10 // 3 = 3)\n• % Modulus/Remainder (10 % 3 = 1)\n• ** Exponentiation (2 ** 3 = 8)\n\nCOMPARISON OPERATORS:\n• == Equal to\n• != Not equal to\n• > Greater than\n• < Less than\n• >= Greater than or equal\n• <= Less than or equal\n\nResults in Boolean (True/False)\n\nLOGICAL OPERATORS:\n• AND - Both must be true\n• OR - At least one true\n• NOT - Reverses boolean\n\nExamples:\n• True AND True = True\n• True AND False = False\n• True OR False = True\n• NOT True = False\n\nASSIGNMENT OPERATORS:\n• = Assign value\n• += Add and assign (x += 5)\n• -= Subtract and assign\n• *= Multiply and assign\n• /= Divide and assign\n\nOPERATOR PRECEDENCE:\n1. Parentheses ()\n2. Exponents **\n3. Multiply, Divide *, /, //, %\n4. Add, Subtract +, -\n5. Comparisons\n6. Logical NOT\n7. Logical AND\n8. Logical OR\n\nExample: 2 + 3 * 4 = 14 (not 20)",
+        "section": "2",
+        "subsection": "2.2 Programming fundamentals",
+        "craigAndDaveVideoId": "xQHAaMmLJAE",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "inputs-outputs",
+        "title": "Inputs and outputs",
+        "content": "Programs need to communicate with users through inputs and outputs:\n\nOUTPUT:\n• Display information to user\n• Screen, printer, file, speaker\n• Common command: print()\n\nExamples:\n```python\nprint(\"Hello World\")\nprint(\"Your score is\", score)\nprint(f\"Hello {name}\")\n```\n\nOutput formatting:\n• Concatenation with +\n• Comma separation\n• F-strings (formatted)\n• New lines with \\n\n\nINPUT:\n• Get information from user\n• Keyboard, mouse, file, sensor\n• Common command: input()\n\nExamples:\n```python\nname = input(\"Enter name: \")\nage = int(input(\"Enter age: \"))\nprice = float(input(\"Enter price: \"))\n```\n\nIMPORTANT:\n• input() always returns STRING\n• Must convert for numbers\n• Validate user input\n• Handle errors gracefully\n\nGOOD PRACTICE:\n• Clear prompts\n• Validate input\n• Meaningful messages\n• Error handling\n• User-friendly interface\n\nExample with validation:\n```python\nwhile True:\n    try:\n        age = int(input(\"Enter age: \"))\n        if age > 0 and age < 120:\n            break\n        else:\n            print(\"Invalid age\")\n    except:\n        print(\"Please enter a number\")\n```\n\nFILE I/O:\n• Read from files\n• Write to files\n• Append to files\n• Binary vs text modes",
+        "section": "2",
+        "subsection": "2.2 Programming fundamentals",
+        "craigAndDaveVideoId": "UlUW3PhPPMI",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "sequence",
+        "title": "Sequence",
+        "content": "Sequence is the order in which instructions are executed in a program:\n\nWHAT IS SEQUENCE:\n• Instructions executed one after another\n• Top to bottom order\n• Foundation of all programs\n• Each line completes before next\n• No skipping or jumping\n\nIMPORTANCE OF ORDER:\n• Order matters!\n• Must declare before use\n• Calculate before output\n• Input before processing\n\nExample - Making a sandwich:\n1. Get bread\n2. Get filling\n3. Put filling on bread\n4. Put slices together\n5. Cut sandwich\n\nWrong order fails!\n\nPROGRAMMING EXAMPLE:\n```python\n# Correct sequence\nname = input(\"Enter name: \")\nage = int(input(\"Enter age: \"))\nyear_born = 2024 - age\nprint(f\"{name} was born in {year_born}\")\n\n# Wrong sequence - ERROR!\nprint(f\"{name} was born in {year_born}\")\nname = input(\"Enter name: \")\nage = int(input(\"Enter age: \"))\nyear_born = 2024 - age\n```\n\nSEQUENCE IN ALGORITHMS:\n• Clear step order\n• Dependencies considered\n• Logical flow\n• No ambiguity\n\nCOMMON MISTAKES:\n• Using variables before declaring\n• Output before calculation\n• Processing before input\n• Closing files before writing\n\nBEST PRACTICES:\n• Plan sequence first\n• Group related operations\n• Comment complex sequences\n• Test order thoroughly",
+        "section": "2",
+        "subsection": "2.2 Programming fundamentals",
+        "craigAndDaveVideoId": "YRHk5rZ5YZE",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "selection",
+        "title": "Selection",
+        "content": "Selection allows programs to make decisions and choose different paths:\n\nIF STATEMENTS:\n• Execute code based on condition\n• Condition evaluates to True/False\n• Indentation shows code block\n\nBasic IF:\n```python\nif age >= 18:\n    print(\"You can vote\")\n```\n\nIF-ELSE:\n```python\nif password == \"secret123\":\n    print(\"Access granted\")\nelse:\n    print(\"Access denied\")\n```\n\nIF-ELIF-ELSE:\n```python\nif score >= 90:\n    grade = \"A\"\nelif score >= 80:\n    grade = \"B\"\nelif score >= 70:\n    grade = \"C\"\nelif score >= 60:\n    grade = \"D\"\nelse:\n    grade = \"F\"\n```\n\nNESTED SELECTION:\n```python\nif age >= 18:\n    if has_id:\n        print(\"Entry allowed\")\n    else:\n        print(\"ID required\")\nelse:\n    print(\"Too young\")\n```\n\nCOMPLEX CONDITIONS:\n• AND - both conditions true\n• OR - at least one true\n• NOT - reverses condition\n\nExample:\n```python\nif age >= 18 and has_money:\n    print(\"Can buy ticket\")\n\nif day == \"Sat\" or day == \"Sun\":\n    print(\"Weekend!\")\n```\n\nCOMMON USES:\n• Validation\n• Menu choices\n• Game logic\n• Access control\n• Error handling\n\nBEST PRACTICES:\n• Clear conditions\n• Avoid deep nesting\n• Consider all cases\n• Use elif for multiple options",
+        "section": "2",
+        "subsection": "2.2 Programming fundamentals",
+        "craigAndDaveVideoId": "m2Fn_4tYo2s",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "iteration-count-controlled",
+        "title": "Count-controlled iteration",
+        "content": "Count-controlled loops repeat a specific number of times using FOR loops:\n\nFOR LOOPS:\n• Repeat known number of times\n• Use loop counter\n• Automatic increment\n• Clear start and end\n\nBasic FOR loop:\n```python\nfor i in range(5):\n    print(i)\n# Output: 0, 1, 2, 3, 4\n```\n\nRANGE FUNCTION:\n• range(5) - 0 to 4\n• range(1, 6) - 1 to 5\n• range(2, 11, 2) - 2,4,6,8,10\n• Start, stop, step values\n\nExamples:\n```python\n# Print 1 to 10\nfor num in range(1, 11):\n    print(num)\n\n# Sum numbers 1 to 100\ntotal = 0\nfor i in range(1, 101):\n    total = total + i\nprint(total)  # 5050\n\n# Countdown\nfor i in range(10, 0, -1):\n    print(i)\nprint(\"Blast off!\")\n```\n\nNESTED LOOPS:\n```python\n# Times tables\nfor i in range(1, 13):\n    for j in range(1, 13):\n        print(f\"{i} x {j} = {i*j}\")\n```\n\nLOOPING THROUGH COLLECTIONS:\n```python\nnames = [\"Alice\", \"Bob\", \"Charlie\"]\nfor name in names:\n    print(f\"Hello {name}\")\n\nword = \"Python\"\nfor letter in word:\n    print(letter)\n```\n\nUSES:\n• Repeating tasks\n• Processing lists\n• Calculations\n• Pattern generation\n• Data validation\n\nBEST PRACTICES:\n• Meaningful counter names\n• Clear range values\n• Avoid modifying counter\n• Consider while loops for unknown counts",
+        "section": "2",
+        "subsection": "2.2 Programming fundamentals",
+        "craigAndDaveVideoId": "GCSPWk7yUhA",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "iteration-condition-controlled",
+        "title": "Condition-controlled iteration",
+        "content": "Condition-controlled loops repeat while a condition is true:\n\nWHILE LOOPS:\n• Repeat unknown number of times\n• Continue while condition True\n• Check condition before each iteration\n• May not execute at all\n\nBasic WHILE:\n```python\ncount = 0\nwhile count < 5:\n    print(count)\n    count = count + 1\n```\n\nUser Input Validation:\n```python\npassword = \"\"\nwhile password != \"secret\":\n    password = input(\"Enter password: \")\nprint(\"Access granted\")\n```\n\nREPEAT-UNTIL (DO-WHILE):\n• Always executes at least once\n• Check condition at end\n• Not in Python, but in pseudocode:\n\n```\nREPEAT\n    password ← INPUT \"Enter password\"\nUNTIL password = \"secret\"\n```\n\nPython equivalent:\n```python\nwhile True:\n    password = input(\"Enter password: \")\n    if password == \"secret\":\n        break\n```\n\nINFINITE LOOPS:\n• Condition never becomes False\n• Program hangs\n• Need escape mechanism\n• Common bug\n\nExample - Menu System:\n```python\nchoice = 0\nwhile choice != 3:\n    print(\"1. Play\")\n    print(\"2. Settings\")\n    print(\"3. Quit\")\n    choice = int(input(\"Choose: \"))\n    if choice == 1:\n        print(\"Playing...\")\n    elif choice == 2:\n        print(\"Settings...\")\n```\n\nFOR vs WHILE:\n• FOR: known iterations\n• WHILE: unknown iterations\n• WHILE: more flexible\n• FOR: clearer for counting\n\nCOMMON PATTERNS:\n• Sentinel values\n• Input validation\n• Game loops\n• Searching\n• Waiting for events",
+        "section": "2",
+        "subsection": "2.2 Programming fundamentals",
+        "craigAndDaveVideoId": "o8pN9p0wWQo",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "boolean-operators",
+        "title": "Boolean operators",
+        "content": "Boolean operators combine or modify conditions in programs:\n\nAND OPERATOR:\n• Both conditions must be True\n• Returns True only if both True\n• Used to combine requirements\n\nTruth table:\n| A | B | A AND B |\n|---|---|--------|\n| T | T | T |\n| T | F | F |\n| F | T | F |\n| F | F | F |\n\nExample:\n```python\nif age >= 18 and has_license:\n    print(\"Can drive\")\n# Both must be true\n```\n\nOR OPERATOR:\n• At least one condition must be True\n• Returns False only if both False\n• Used for alternatives\n\nTruth table:\n| A | B | A OR B |\n|---|---|-------|\n| T | T | T |\n| T | F | T |\n| F | T | T |\n| F | F | F |\n\nExample:\n```python\nif day == \"Sat\" or day == \"Sun\":\n    print(\"Weekend\")\n# Either can be true\n```\n\nNOT OPERATOR:\n• Reverses boolean value\n• True becomes False\n• False becomes True\n\nTruth table:\n| A | NOT A |\n|---|-------|\n| T | F |\n| F | T |\n\nExample:\n```python\nif not is_raining:\n    print(\"No umbrella needed\")\n```\n\nCOMBINING OPERATORS:\n```python\nif (age >= 18 and has_money) or is_vip:\n    print(\"Entry allowed\")\n\nif not (password == \"\" or username == \"\"):\n    print(\"Can login\")\n```\n\nPRECEDENCE:\n1. NOT (highest)\n2. AND\n3. OR (lowest)\n• Use parentheses for clarity\n\nDE MORGAN'S LAWS:\n• NOT (A AND B) = (NOT A) OR (NOT B)\n• NOT (A OR B) = (NOT A) AND (NOT B)",
+        "section": "2",
+        "subsection": "2.2 Programming fundamentals",
+        "craigAndDaveVideoId": "gJlv7Y7tCAU",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "arrays-lists",
+        "title": "Arrays/Lists",
+        "content": "Arrays and lists store multiple values in a single variable:\n\nWHAT ARE ARRAYS/LISTS:\n• Collection of elements\n• Same variable name\n• Access by index/position\n• Can store many values\n• Python uses lists (dynamic)\n\nCREATING LISTS:\n```python\n# Empty list\nscores = []\n\n# List with values\nnames = [\"Alice\", \"Bob\", \"Charlie\"]\nnumbers = [10, 20, 30, 40, 50]\nmixed = [\"Hello\", 42, True, 3.14]\n```\n\nACCESSING ELEMENTS:\n• Index starts at 0\n• Negative index from end\n```python\nnames = [\"Alice\", \"Bob\", \"Charlie\"]\nprint(names[0])   # Alice\nprint(names[2])   # Charlie\nprint(names[-1])  # Charlie (last)\n```\n\nMODIFYING LISTS:\n```python\n# Change element\nscores[0] = 100\n\n# Add elements\nnames.append(\"David\")        # End\nnames.insert(1, \"Eve\")       # Position\n\n# Remove elements\nnames.remove(\"Bob\")          # By value\ndeleted = names.pop(0)       # By index\n```\n\nLIST OPERATIONS:\n```python\n# Length\nsize = len(names)\n\n# Search\nif \"Alice\" in names:\n    position = names.index(\"Alice\")\n\n# Sort\nnumbers.sort()\nnames.sort()\n\n# Reverse\nnumbers.reverse()\n```\n\nLOOPING THROUGH LISTS:\n```python\n# By element\nfor name in names:\n    print(name)\n\n# By index\nfor i in range(len(scores)):\n    scores[i] = scores[i] + 10\n```\n\n2D ARRAYS/LISTS:\n```python\ngrid = [[1, 2, 3],\n        [4, 5, 6],\n        [7, 8, 9]]\n\nprint(grid[1][2])  # 6\n```",
+        "section": "2",
+        "subsection": "2.2 Programming fundamentals",
+        "craigAndDaveVideoId": "b4VqfEc3hCU",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "string-manipulation",
+        "title": "String manipulation",
+        "content": "Strings can be manipulated in various ways to process text:\n\nSTRING BASICS:\n• Sequence of characters\n• Immutable (can't change)\n• Can be indexed like lists\n• Many built-in methods\n\nSTRING OPERATIONS:\n\nLength:\n```python\nname = \"Python\"\nlength = len(name)  # 6\n```\n\nConcatenation:\n```python\nfirst = \"Hello\"\nsecond = \"World\"\nfull = first + \" \" + second  # \"Hello World\"\n```\n\nAccessing characters:\n```python\nword = \"Python\"\nfirst_letter = word[0]    # 'P'\nlast_letter = word[-1]    # 'n'\n```\n\nSlicing:\n```python\ntext = \"Programming\"\nprint(text[0:4])     # \"Prog\"\nprint(text[4:])      # \"ramming\"\nprint(text[:4])      # \"Prog\"\nprint(text[::2])     # \"Pormig\" (every 2nd)\n```\n\nSTRING METHODS:\n\nCase changes:\n```python\ntext = \"Hello World\"\nprint(text.upper())      # \"HELLO WORLD\"\nprint(text.lower())      # \"hello world\"\nprint(text.title())      # \"Hello World\"\n```\n\nSearching:\n```python\nif \"World\" in text:\n    position = text.find(\"World\")  # 6\ncount = text.count(\"l\")            # 3\n```\n\nReplacing:\n```python\nnew_text = text.replace(\"World\", \"Python\")\n```\n\nSplitting and joining:\n```python\nwords = \"apple,banana,orange\".split(\",\")\n# ['apple', 'banana', 'orange']\n\njoined = \"-\".join(words)\n# \"apple-banana-orange\"\n```\n\nWhitespace:\n```python\ntext = \"  Hello  \"\nclean = text.strip()     # \"Hello\"\n```\n\nVALIDATION:\n```python\n\"123\".isdigit()         # True\n\"abc\".isalpha()         # True\n\"abc123\".isalnum()      # True\n```",
+        "section": "2",
+        "subsection": "2.2 Programming fundamentals",
+        "craigAndDaveVideoId": "GmFpdUjReJQ",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "functions-procedures",
+        "title": "Functions and procedures",
+        "content": "Functions and procedures are reusable blocks of code that perform specific tasks:\n\nFUNCTIONS:\n• Return a value\n• Can be used in expressions\n• Have parameters (inputs)\n• Solve specific problems\n\nDefining functions:\n```python\ndef add_numbers(a, b):\n    result = a + b\n    return result\n\n# Using the function\nsum = add_numbers(5, 3)  # sum = 8\n```\n\nPROCEDURES:\n• Don't return a value\n• Perform actions\n• Side effects (print, modify)\n• In Python, return None\n\n```python\ndef greet(name):\n    print(f\"Hello, {name}!\")\n    # No return statement\n\ngreet(\"Alice\")  # Prints: Hello, Alice!\n```\n\nPARAMETERS vs ARGUMENTS:\n• Parameters: variables in definition\n• Arguments: actual values passed\n\n```python\ndef multiply(x, y):      # x, y are parameters\n    return x * y\n\nresult = multiply(4, 5)  # 4, 5 are arguments\n```\n\nSCOPE:\n• Local variables: inside function\n• Global variables: outside function\n• Parameters are local\n\n```python\ntotal = 0  # Global\n\ndef add_to_total(value):\n    global total\n    total = total + value  # Modify global\n```\n\nBENEFITS:\n• Code reuse\n• Easier testing\n• Modularity\n• Abstraction\n• Easier maintenance\n\nEXAMPLES:\n```python\n# Function with multiple returns\ndef get_grade(score):\n    if score >= 90:\n        return \"A\"\n    elif score >= 80:\n        return \"B\"\n    else:\n        return \"C\"\n\n# Function with default parameter\ndef power(base, exponent=2):\n    return base ** exponent\n\nprint(power(5))      # 25\nprint(power(5, 3))   # 125\n```",
+        "section": "2",
+        "subsection": "2.2 Programming fundamentals",
+        "craigAndDaveVideoId": "f00uTaE3qXw",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "random-numbers",
+        "title": "Random number generation",
+        "content": "Random numbers are essential for games, simulations, and testing:\n\nIMPORTING RANDOM MODULE:\n```python\nimport random\n```\n\nRANDOM INTEGERS:\n```python\n# Random integer between 1 and 6 (inclusive)\ndice = random.randint(1, 6)\n\n# Random integer between 0 and 9\ndigit = random.randint(0, 9)\n```\n\nRANDOM FLOATS:\n```python\n# Random float between 0.0 and 1.0\nvalue = random.random()\n\n# Random float in range\nprice = random.uniform(10.0, 20.0)\n```\n\nRANDOM CHOICE:\n```python\n# Pick random element from list\ncolors = [\"red\", \"green\", \"blue\"]\nchosen = random.choice(colors)\n\n# Pick multiple unique elements\nwinners = random.sample(colors, 2)\n```\n\nSHUFFLING:\n```python\ncards = [1, 2, 3, 4, 5]\nrandom.shuffle(cards)\n# cards now in random order\n```\n\nPRACTICAL EXAMPLES:\n\nDice game:\n```python\nplayer = random.randint(1, 6)\ncomputer = random.randint(1, 6)\n\nif player > computer:\n    print(\"You win!\")\nelif computer > player:\n    print(\"Computer wins!\")\nelse:\n    print(\"Draw!\")\n```\n\nPassword generator:\n```python\nimport string\n\nchars = string.ascii_letters + string.digits\npassword = \"\"\n\nfor i in range(8):\n    password += random.choice(chars)\n```\n\nGUESSING GAME:\n```python\nsecret = random.randint(1, 100)\nguesses = 0\n\nwhile True:\n    guess = int(input(\"Guess: \"))\n    guesses += 1\n    \n    if guess == secret:\n        print(f\"Correct in {guesses} tries!\")\n        break\n    elif guess < secret:\n        print(\"Too low\")\n    else:\n        print(\"Too high\")\n```\n\nSEED VALUES:\n• Make random numbers predictable\n• Good for testing\n• random.seed(42)",
+        "section": "2",
+        "subsection": "2.2 Programming fundamentals",
+        "craigAndDaveVideoId": "_kKgOTJdLAo",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "file-handling",
+        "title": "File handling",
+        "content": "Programs can read from and write to files for persistent storage:\n\nOPENING FILES:\n```python\n# Read mode\nfile = open(\"data.txt\", \"r\")\n\n# Write mode (overwrites)\nfile = open(\"data.txt\", \"w\")\n\n# Append mode\nfile = open(\"data.txt\", \"a\")\n```\n\nREADING FILES:\n\nRead entire file:\n```python\nfile = open(\"data.txt\", \"r\")\ncontent = file.read()\nfile.close()\nprint(content)\n```\n\nRead line by line:\n```python\nfile = open(\"data.txt\", \"r\")\nfor line in file:\n    print(line.strip())\nfile.close()\n```\n\nRead into list:\n```python\nfile = open(\"data.txt\", \"r\")\nlines = file.readlines()\nfile.close()\n```\n\nWRITING FILES:\n```python\nfile = open(\"output.txt\", \"w\")\nfile.write(\"Hello World\\n\")\nfile.write(\"Second line\\n\")\nfile.close()\n```\n\nWITH STATEMENT (Best Practice):\n```python\n# Automatically closes file\nwith open(\"data.txt\", \"r\") as file:\n    content = file.read()\n    # File automatically closed\n```\n\nCSV FILES:\n```python\n# Writing CSV\nwith open(\"scores.csv\", \"w\") as file:\n    file.write(\"Name,Score\\n\")\n    file.write(\"Alice,95\\n\")\n    file.write(\"Bob,87\\n\")\n\n# Reading CSV\nwith open(\"scores.csv\", \"r\") as file:\n    lines = file.readlines()\n    for line in lines[1:]:  # Skip header\n        parts = line.strip().split(\",\")\n        name = parts[0]\n        score = int(parts[1])\n```\n\nERROR HANDLING:\n```python\ntry:\n    with open(\"data.txt\", \"r\") as file:\n        content = file.read()\nexcept FileNotFoundError:\n    print(\"File not found!\")\n```\n\nBINARY FILES:\n• \"rb\" for read binary\n• \"wb\" for write binary\n• For images, audio, etc.",
+        "section": "2",
+        "subsection": "2.2 Programming fundamentals",
+        "craigAndDaveVideoId": "Qg0sG0m3gM4",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "records-data-structures",
+        "title": "Records and data structures",
+        "content": "Records group related data together into a single structure:\n\nWHAT ARE RECORDS:\n• Collection of related fields\n• Different data types allowed\n• Like a database row\n• Custom data structures\n\nPYTHON IMPLEMENTATION:\n\nUsing dictionaries:\n```python\n# Single record\nstudent = {\n    \"name\": \"Alice Smith\",\n    \"age\": 16,\n    \"grade\": \"A\",\n    \"subjects\": [\"Math\", \"Science\", \"English\"]\n}\n\n# Accessing fields\nprint(student[\"name\"])\nstudent[\"age\"] = 17\n```\n\nList of records:\n```python\n# Multiple students\nstudents = [\n    {\"name\": \"Alice\", \"age\": 16, \"grade\": \"A\"},\n    {\"name\": \"Bob\", \"age\": 17, \"grade\": \"B\"},\n    {\"name\": \"Charlie\", \"age\": 16, \"grade\": \"A\"}\n]\n\n# Process all records\nfor student in students:\n    print(f\"{student['name']}: {student['grade']}\")\n```\n\nUsing classes (advanced):\n```python\nclass Student:\n    def __init__(self, name, age, grade):\n        self.name = name\n        self.age = age\n        self.grade = grade\n\n# Create instances\nalice = Student(\"Alice\", 16, \"A\")\nbob = Student(\"Bob\", 17, \"B\")\n\n# Access attributes\nprint(alice.name)\nalice.age = 17\n```\n\nNESTED STRUCTURES:\n```python\nschool = {\n    \"name\": \"City High School\",\n    \"students\": [\n        {\"name\": \"Alice\", \"grades\": [85, 92, 88]},\n        {\"name\": \"Bob\", \"grades\": [78, 81, 79]}\n    ],\n    \"teachers\": [\n        {\"name\": \"Mr. Smith\", \"subject\": \"Math\"},\n        {\"name\": \"Ms. Jones\", \"subject\": \"English\"}\n    ]\n}\n```\n\nFILE STORAGE:\n```python\n# Save records to file\nwith open(\"students.txt\", \"w\") as file:\n    for s in students:\n        file.write(f\"{s['name']},{s['age']},{s['grade']}\\n\")\n\n# Load records from file\nstudents = []\nwith open(\"students.txt\", \"r\") as file:\n    for line in file:\n        parts = line.strip().split(\",\")\n        students.append({\n            \"name\": parts[0],\n            \"age\": int(parts[1]),\n            \"grade\": parts[2]\n        })\n```",
+        "section": "2",
+        "subsection": "2.2 Programming fundamentals",
+        "craigAndDaveVideoId": "_1WsVz_7gKk",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "sql-basics",
+        "title": "SQL basics",
+        "content": "SQL (Structured Query Language) is used to manage and query databases:\n\nBASIC SQL COMMANDS:\n\nSELECT - Retrieve data:\n```sql\n-- All columns\nSELECT * FROM students;\n\n-- Specific columns\nSELECT name, age FROM students;\n\n-- With conditions\nSELECT * FROM students WHERE age > 16;\n\n-- Multiple conditions\nSELECT * FROM students \nWHERE age >= 16 AND grade = 'A';\n```\n\nORDER BY - Sort results:\n```sql\n-- Ascending (default)\nSELECT * FROM students ORDER BY name;\n\n-- Descending\nSELECT * FROM students ORDER BY age DESC;\n\n-- Multiple columns\nSELECT * FROM students \nORDER BY grade, name;\n```\n\nINSERT - Add new records:\n```sql\nINSERT INTO students (name, age, grade)\nVALUES ('David', 17, 'B');\n```\n\nUPDATE - Modify records:\n```sql\n-- Update specific record\nUPDATE students \nSET grade = 'A' \nWHERE name = 'Bob';\n\n-- Update multiple records\nUPDATE students \nSET age = age + 1 \nWHERE grade = 'A';\n```\n\nDELETE - Remove records:\n```sql\n-- Delete specific record\nDELETE FROM students \nWHERE name = 'Charlie';\n\n-- Delete multiple records\nDELETE FROM students \nWHERE age < 16;\n```\n\nWILDCARDS with LIKE:\n```sql\n-- Names starting with 'A'\nSELECT * FROM students \nWHERE name LIKE 'A%';\n\n-- Names ending with 'son'\nSELECT * FROM students \nWHERE name LIKE '%son';\n\n-- Names containing 'ar'\nSELECT * FROM students \nWHERE name LIKE '%ar%';\n```\n\nAGGREGATE FUNCTIONS:\n```sql\nSELECT COUNT(*) FROM students;\nSELECT AVG(age) FROM students;\nSELECT MAX(age) FROM students;\nSELECT MIN(age) FROM students;\n```",
+        "section": "2",
+        "subsection": "2.2 Programming fundamentals",
+        "craigAndDaveVideoId": "B8PbjyJ5vmQ",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "defensive-design",
+        "title": "Defensive design considerations",
+        "content": "Defensive design anticipates potential problems and prevents program failures:\n\nWHAT IS DEFENSIVE DESIGN:\n• Planning for the unexpected\n• Preventing crashes and errors\n• Protecting against misuse\n• Making programs robust\n• User-friendly error handling\n\nKEY PRINCIPLES:\n\n1. Anticipate User Errors:\n• Invalid inputs\n• Wrong data types\n• Out of range values\n• Empty inputs\n• Malicious inputs\n\n2. Input Validation:\n• Check data before processing\n• Reject invalid inputs\n• Provide clear feedback\n• Guide users to correct input\n\n3. Sanitization:\n• Remove dangerous characters\n• Prevent SQL injection\n• Clean user inputs\n• Escape special characters\n\n4. Authentication:\n• Verify user identity\n• Password requirements\n• Access controls\n• Session management\n\n5. Error Handling:\n• Catch exceptions\n• Graceful failures\n• Meaningful error messages\n• Recovery options\n\nEXAMPLES:\n\nRange checking:\n```python\nage = int(input(\"Enter age: \"))\nif age < 0 or age > 150:\n    print(\"Invalid age\")\n```\n\nType checking:\n```python\ntry:\n    age = int(input(\"Enter age: \"))\nexcept ValueError:\n    print(\"Please enter a number\")\n```\n\nPresence checking:\n```python\nname = input(\"Enter name: \")\nif name == \"\":\n    print(\"Name cannot be empty\")\n```\n\nBENEFITS:\n• Fewer crashes\n• Better user experience\n• More secure\n• Easier maintenance\n• Professional quality",
+        "section": "2",
+        "subsection": "2.3 Producing robust programs",
+        "craigAndDaveVideoId": "SufM8nTSgRw",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "input-validation",
+        "title": "Input validation",
+        "content": "Input validation ensures data entered by users is acceptable before processing:\n\nTYPES OF VALIDATION:\n\n1. TYPE CHECK:\n• Ensure correct data type\n• Numbers vs text\n• Prevent type errors\n```python\ntry:\n    age = int(input(\"Enter age: \"))\nexcept ValueError:\n    print(\"Please enter a whole number\")\n```\n\n2. RANGE CHECK:\n• Values within acceptable limits\n• Minimum and maximum values\n• Prevent outliers\n```python\ngrade = int(input(\"Enter grade (0-100): \"))\nif grade < 0 or grade > 100:\n    print(\"Grade must be between 0 and 100\")\n```\n\n3. PRESENCE CHECK:\n• Ensure data is entered\n• Not empty or null\n• Required fields\n```python\nusername = input(\"Enter username: \")\nif username.strip() == \"\":\n    print(\"Username cannot be empty\")\n```\n\n4. FORMAT CHECK:\n• Correct pattern/structure\n• Email addresses\n• Phone numbers\n• Dates\n```python\nimport re\nemail = input(\"Enter email: \")\nif not re.match(r\"[^@]+@[^@]+\\.[^@]+\", email):\n    print(\"Invalid email format\")\n```\n\n5. LENGTH CHECK:\n• Minimum/maximum length\n• Password requirements\n• Username limits\n```python\npassword = input(\"Enter password: \")\nif len(password) < 8:\n    print(\"Password must be at least 8 characters\")\n```\n\n6. LOOKUP CHECK:\n• Value exists in list\n• Valid options only\n• Database verification\n```python\ncolors = [\"red\", \"green\", \"blue\"]\nchoice = input(\"Choose color: \").lower()\nif choice not in colors:\n    print(\"Invalid color choice\")\n```\n\nCOMPLETE EXAMPLE:\n```python\ndef get_valid_age():\n    while True:\n        try:\n            age = int(input(\"Enter age: \"))\n            if age < 0:\n                print(\"Age cannot be negative\")\n            elif age > 150:\n                print(\"Age seems unrealistic\")\n            else:\n                return age\n        except ValueError:\n            print(\"Please enter a number\")\n```",
+        "section": "2",
+        "subsection": "2.3 Producing robust programs",
+        "craigAndDaveVideoId": "9KdXbMomRts",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "sanitisation",
+        "title": "Sanitisation",
+        "content": "Sanitisation cleans user input to prevent security vulnerabilities and errors:\n\nWHAT IS SANITISATION:\n• Cleaning user input\n• Removing dangerous content\n• Preventing injection attacks\n• Ensuring data safety\n• Different from validation\n\nCOMMON TECHNIQUES:\n\n1. REMOVING WHITESPACE:\n```python\n# Remove leading/trailing spaces\nusername = input(\"Username: \").strip()\n\n# Remove all spaces\nphone = input(\"Phone: \").replace(\" \", \"\")\n```\n\n2. CASE CONVERSION:\n```python\n# Consistent case for comparison\nemail = input(\"Email: \").lower()\n\n# Standardize names\nname = input(\"Name: \").title()\n```\n\n3. ESCAPING SPECIAL CHARACTERS:\n```python\n# Prevent SQL injection\nuser_input = user_input.replace(\"'\", \"''\")\n\n# HTML encoding\ncomment = comment.replace(\"<\", \"&lt;\")\ncomment = comment.replace(\">\", \"&gt;\")\n```\n\n4. REMOVING DANGEROUS CHARACTERS:\n```python\n# Allow only alphanumeric\nimport re\nusername = re.sub(r'[^a-zA-Z0-9]', '', username)\n\n# Remove script tags\ntext = re.sub(r'<script.*?</script>', '', text)\n```\n\n5. LIMITING INPUT:\n```python\n# Truncate to maximum length\ncomment = comment[:500]\n\n# Remove non-printable characters\nimport string\nclean = ''.join(c for c in text if c in string.printable)\n```\n\nSQL INJECTION PREVENTION:\n```python\n# BAD - Vulnerable\nquery = f\"SELECT * FROM users WHERE name = '{user_input}'\"\n\n# GOOD - Parameterized query\ncursor.execute(\"SELECT * FROM users WHERE name = ?\", (user_input,))\n```\n\nFILE UPLOAD SANITISATION:\n```python\n# Check file extension\nallowed = ['.jpg', '.png', '.gif']\nif not filename.lower().endswith(tuple(allowed)):\n    reject_file()\n\n# Rename uploaded files\nimport uuid\nnew_name = str(uuid.uuid4()) + '.jpg'\n```\n\nBEST PRACTICES:\n• Sanitise all user input\n• Use built-in functions\n• Don't trust any input\n• Layer with validation\n• Test edge cases",
+        "section": "2",
+        "subsection": "2.3 Producing robust programs",
+        "craigAndDaveVideoId": "fJW65Wo7IHI",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "authentication",
+        "title": "Authentication",
+        "content": "Authentication verifies the identity of users accessing a system:\n\nWHAT IS AUTHENTICATION:\n• Verifying user identity\n• Controlling system access\n• Protecting resources\n• Different from authorization\n• First line of defense\n\nAUTHENTICATION METHODS:\n\n1. USERNAME AND PASSWORD:\n• Most common method\n• Something you know\n• Should be unique and strong\n```python\ndef authenticate(username, password):\n    stored_hash = get_user_password_hash(username)\n    if verify_password(password, stored_hash):\n        return True\n    return False\n```\n\n2. BIOMETRIC:\n• Fingerprint scanning\n• Face recognition\n• Iris scanning\n• Voice recognition\n• Something you are\n\n3. TOKEN-BASED:\n• Physical tokens/cards\n• Software tokens (apps)\n• One-time passwords\n• Something you have\n\nPASSWORD SECURITY:\n\nStrong password requirements:\n```python\ndef is_strong_password(password):\n    if len(password) < 8:\n        return False\n    if not any(c.isupper() for c in password):\n        return False\n    if not any(c.islower() for c in password):\n        return False\n    if not any(c.isdigit() for c in password):\n        return False\n    if not any(c in \"!@#$%^&*\" for c in password):\n        return False\n    return True\n```\n\nPassword hashing:\n```python\nimport hashlib\n\ndef hash_password(password):\n    # Never store plain text!\n    salt = generate_salt()\n    hashed = hashlib.sha256((password + salt).encode()).hexdigest()\n    return salt, hashed\n```\n\nMULTI-FACTOR AUTHENTICATION (MFA):\n• Combines multiple methods\n• Much more secure\n• Examples:\n  - Password + SMS code\n  - Password + authenticator app\n  - Biometric + PIN\n\nSESSION MANAGEMENT:\n```python\n# After successful login\nsession_token = generate_session_token()\nstore_session(user_id, session_token)\nset_cookie(session_token)\n\n# Check on each request\nif valid_session(session_token):\n    allow_access()\nelse:\n    redirect_to_login()\n```\n\nBEST PRACTICES:\n• Never store plain passwords\n• Use secure hashing\n• Implement account lockouts\n• Log authentication attempts\n• Use HTTPS for login\n• Session timeouts\n• Regular password changes",
+        "section": "2",
+        "subsection": "2.3 Producing robust programs",
+        "craigAndDaveVideoId": "_Lw3lIDz64Y",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "maintainability",
+        "title": "Maintainability",
+        "content": "Maintainable code is easy to understand, modify, and debug:\n\nWHY MAINTAINABILITY MATTERS:\n• Code lives for years\n• Requirements change\n• Multiple developers\n• Bug fixes needed\n• Feature additions\n• Cost reduction\n\nKEY TECHNIQUES:\n\n1. MEANINGFUL IDENTIFIERS:\n```python\n# BAD\nx = 3.14159\ny = x * r * r\n\n# GOOD\nPI = 3.14159\ncircle_area = PI * radius * radius\n```\n\n2. COMMENTS:\n```python\n# Calculate compound interest\n# Formula: A = P(1 + r/n)^(nt)\ndef calculate_compound_interest(principal, rate, time, compounds_per_year):\n    # Convert percentage to decimal\n    rate_decimal = rate / 100\n    \n    # Apply compound interest formula\n    amount = principal * (1 + rate_decimal/compounds_per_year) ** (compounds_per_year * time)\n    \n    return amount\n```\n\n3. INDENTATION:\n```python\n# Proper indentation shows structure\nfor i in range(10):\n    if i % 2 == 0:\n        print(f\"{i} is even\")\n    else:\n        print(f\"{i} is odd\")\n```\n\n4. MODULAR CODE:\n```python\n# Break into functions\ndef validate_email(email):\n    return \"@\" in email and \".\" in email\n\ndef validate_age(age):\n    return 0 <= age <= 150\n\ndef validate_user(email, age):\n    return validate_email(email) and validate_age(age)\n```\n\n5. CONSTANTS:\n```python\n# Configuration at top\nMAX_LOGIN_ATTEMPTS = 3\nSESSION_TIMEOUT = 3600  # seconds\nDEFAULT_PAGE_SIZE = 20\n\n# Use throughout code\nif login_attempts > MAX_LOGIN_ATTEMPTS:\n    lock_account()\n```\n\n6. NAMING CONVENTIONS:\n```python\n# Python conventions\nclass StudentRecord:      # CamelCase for classes\n    def calculate_gpa(self):  # snake_case for functions\n        total_points = 0      # snake_case for variables\n        CREDIT_HOURS = 120    # UPPER_CASE for constants\n```\n\n7. DOCUMENTATION:\n```python\ndef calculate_bmi(weight_kg, height_m):\n    \"\"\"\n    Calculate Body Mass Index\n    \n    Args:\n        weight_kg (float): Weight in kilograms\n        height_m (float): Height in meters\n    \n    Returns:\n        float: BMI value\n    \n    Example:\n        >>> calculate_bmi(70, 1.75)\n        22.86\n    \"\"\"\n    return weight_kg / (height_m ** 2)\n```\n\nBENEFITS:\n• Faster debugging\n• Easier updates\n• Team collaboration\n• Reduced errors\n• Knowledge transfer\n• Lower costs",
+        "section": "2",
+        "subsection": "2.3 Producing robust programs",
+        "craigAndDaveVideoId": "oGNJf1SI6gI",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "testing-types",
+        "title": "Types of testing",
+        "content": "Testing ensures programs work correctly and meet requirements:\n\nTYPES OF TESTING:\n\n1. ITERATIVE TESTING:\n• Test during development\n• Fix problems as you go\n• Test each module/function\n• Continuous process\n• Catch errors early\n\nExample:\n```python\n# Write function\ndef add_vat(price):\n    return price * 1.2\n\n# Test immediately\nprint(add_vat(10))    # Should be 12\nprint(add_vat(100))   # Should be 120\n```\n\n2. FINAL/TERMINAL TESTING:\n• Test complete program\n• All features together\n• User acceptance testing\n• Performance testing\n• Before release\n\n3. UNIT TESTING:\n• Test individual functions\n• Isolated components\n• Automated tests\n• Quick to run\n```python\ndef test_calculate_area():\n    assert calculate_area(5, 10) == 50\n    assert calculate_area(0, 10) == 0\n    assert calculate_area(3.5, 2) == 7.0\n```\n\n4. INTEGRATION TESTING:\n• Test modules together\n• Check interactions\n• Data flow between units\n• Interface testing\n\n5. SYSTEM TESTING:\n• Complete system test\n• Real environment\n• End-to-end scenarios\n• Performance checks\n\nTEST DATA CATEGORIES:\n\n1. NORMAL DATA:\n• Expected inputs\n• Typical use cases\n• Should work correctly\n```python\n# Age validation: normal data\ntest_ages = [18, 25, 45, 65]\n```\n\n2. BOUNDARY DATA:\n• Edge of valid range\n• Maximum/minimum values\n• Critical test cases\n```python\n# Age validation: boundaries\ntest_ages = [0, 1, 149, 150]\n```\n\n3. INVALID/ERRONEOUS DATA:\n• Outside valid range\n• Wrong data type\n• Should be rejected\n```python\n# Age validation: invalid\ntest_ages = [-1, 151, \"abc\", 3.14]\n```\n\nTEST PLAN EXAMPLE:\n| Test | Input | Expected Output | Actual Output | Pass/Fail |\n|------|-------|----------------|---------------|----------|\n| 1 | 50 | \"Pass\" | \"Pass\" | Pass |\n| 2 | 39 | \"Fail\" | \"Fail\" | Pass |\n| 3 | 40 | \"Pass\" | \"Pass\" | Pass |\n| 4 | -5 | \"Invalid\" | Error | Fail |\n\nBENEFITS:\n• Find bugs early\n• Ensure quality\n• Save time/money\n• Build confidence\n• Document behavior",
+        "section": "2",
+        "subsection": "2.3 Producing robust programs",
+        "craigAndDaveVideoId": "vRe-J6K4zfU",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "test-data",
+        "title": "Selecting and using test data",
+        "content": "Choosing appropriate test data is crucial for thorough testing:\n\nTEST DATA SELECTION:\n\n1. NORMAL/TYPICAL DATA:\n• Common use cases\n• Expected values\n• Should pass tests\n• Realistic scenarios\n\nExample - Password validation:\n```python\n# Normal passwords (8+ chars, mixed case, numbers)\nnormal_passwords = [\n    \"Password123\",\n    \"SecurePass99\",\n    \"MyP@ssw0rd\"\n]\n```\n\n2. BOUNDARY/EXTREME DATA:\n• Minimum values\n• Maximum values\n• Edge cases\n• Limits of ranges\n\nExample - Age validation (0-150):\n```python\nboundary_ages = [\n    0,      # Minimum valid\n    1,      # Just above minimum\n    149,    # Just below maximum\n    150,    # Maximum valid\n]\n```\n\n3. INVALID/ERRONEOUS DATA:\n• Out of range\n• Wrong type\n• Missing data\n• Malformed input\n\nExample - Email validation:\n```python\ninvalid_emails = [\n    \"notanemail\",      # No @\n    \"@example.com\",    # No username\n    \"user@\",           # No domain\n    \"user@@example\",   # Double @\n    \"\",                # Empty\n    \"user@.com\"        # Invalid domain\n]\n```\n\nCOMPREHENSIVE TEST EXAMPLE:\n\n```python\ndef test_calculate_grade():\n    # Normal data\n    assert calculate_grade(85) == \"A\"\n    assert calculate_grade(75) == \"B\"\n    assert calculate_grade(65) == \"C\"\n    assert calculate_grade(55) == \"D\"\n    \n    # Boundary data\n    assert calculate_grade(100) == \"A\"  # Max\n    assert calculate_grade(90) == \"A\"   # A boundary\n    assert calculate_grade(89) == \"B\"   # Just below\n    assert calculate_grade(0) == \"F\"    # Min\n    \n    # Invalid data\n    assert calculate_grade(-5) == \"Invalid\"\n    assert calculate_grade(101) == \"Invalid\"\n    assert calculate_grade(\"abc\") == \"Invalid\"\n```\n\nTEST DATA TABLE:\n| Category | Purpose | Example (0-100 range) |\n|----------|---------|----------------------|\n| Normal | Typical values | 25, 50, 75 |\n| Boundary | Edge cases | 0, 1, 99, 100 |\n| Invalid | Error handling | -1, 101, \"text\" |\n\nSPECIAL CASES:\n• Empty strings\n• Null values\n• Very long inputs\n• Special characters\n• Unicode characters\n• Decimal vs integer\n\nAUTOMATED TEST GENERATION:\n```python\nimport random\n\n# Generate test cases\nfor i in range(100):\n    # Random normal data\n    normal = random.randint(1, 99)\n    test_function(normal)\n    \n    # Random invalid data\n    invalid = random.choice([-100, 200, \"error\"])\n    test_function(invalid)\n```",
+        "section": "2",
+        "subsection": "2.3 Producing robust programs",
+        "craigAndDaveVideoId": "I7Ae1d_Z63w",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "debugging-techniques",
+        "title": "Debugging techniques",
+        "content": "Debugging is the process of finding and fixing errors in programs:\n\nTYPES OF ERRORS:\n\n1. SYNTAX ERRORS:\n• Code won't run\n• Grammar mistakes\n• Missing punctuation\n• Misspelled keywords\n```python\n# Syntax error examples\nprint(\"Hello)        # Missing quote\nif x = 5:           # Should be ==\n    print \"Hi\"      # Missing parentheses\n```\n\n2. LOGIC ERRORS:\n• Code runs but wrong result\n• Incorrect algorithm\n• Wrong conditions\n• Harder to find\n```python\n# Logic error - should be >=\nif grade > 90:\n    return \"A\"  # Misses grade of 90\n```\n\n3. RUNTIME ERRORS:\n• Crashes during execution\n• Division by zero\n• File not found\n• Index out of range\n```python\n# Runtime error examples\nresult = 10 / 0          # ZeroDivisionError\nlist[10]                 # IndexError\nint(\"abc\")              # ValueError\n```\n\nDEBUGGING TECHNIQUES:\n\n1. PRINT STATEMENTS:\n```python\ndef calculate_average(numbers):\n    print(f\"Input: {numbers}\")  # Debug\n    total = sum(numbers)\n    print(f\"Total: {total}\")    # Debug\n    count = len(numbers)\n    print(f\"Count: {count}\")    # Debug\n    average = total / count\n    print(f\"Average: {average}\") # Debug\n    return average\n```\n\n2. BREAKPOINTS:\n• Pause execution\n• Examine variables\n• Step through code\n• IDE feature\n\n3. TRACE TABLES:\n• Manual execution\n• Track variable values\n• Find logic errors\n\n4. RUBBER DUCK DEBUGGING:\n• Explain code aloud\n• Often reveals problem\n• No actual duck needed!\n\n5. BINARY SEARCH:\n• Comment out half the code\n• Narrow down problem area\n• Efficient for large programs\n\n6. ERROR MESSAGES:\n```python\ntry:\n    risky_operation()\nexcept Exception as e:\n    print(f\"Error type: {type(e)}\")\n    print(f\"Error message: {str(e)}\")\n    print(f\"Line number: {e.__traceback__.tb_lineno}\")\n```\n\nDEBUGGING PROCESS:\n1. Reproduce the error\n2. Understand expected behavior\n3. Isolate the problem\n4. Fix the issue\n5. Test the fix\n6. Check for side effects\n\nCOMMON DEBUGGING MISTAKES:\n• Fixing symptoms not causes\n• Making multiple changes\n• Not testing after fixes\n• Ignoring error messages\n• Not using version control\n\nPREVENTION:\n• Write clean code\n• Test as you go\n• Use meaningful names\n• Add comments\n• Handle exceptions",
+        "section": "2",
+        "subsection": "2.3 Producing robust programs",
+        "craigAndDaveVideoId": "kGbsSHfKVKs",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "boolean-logic-basics",
+        "title": "Boolean logic basics",
+        "content": "Boolean logic is the foundation of digital circuits and computer decision-making:\n\nWHAT IS BOOLEAN LOGIC:\n• Named after George Boole\n• Two values: TRUE (1) or FALSE (0)\n• Basis of all digital systems\n• Used in circuits and programming\n• Combines simple decisions\n\nBASIC CONCEPTS:\n• Binary system - only 0 and 1\n• Logic gates process boolean values\n• Truth tables show all outcomes\n• Boolean expressions combine conditions\n• Used in IF statements\n\nBOOLEAN VALUES:\n• 1 = TRUE = ON = HIGH\n• 0 = FALSE = OFF = LOW\n• No other values possible\n• Can represent any yes/no decision\n\nBOOLEAN VARIABLES:\n```python\nis_raining = True\nhas_umbrella = False\ndoor_open = True\nlight_on = False\n```\n\nLOGIC IN PROGRAMMING:\n```python\n# Boolean conditions\nif age >= 18:\n    adult = True\nelse:\n    adult = False\n\n# Combining conditions\nif is_weekend and weather_good:\n    go_outside = True\n```\n\nREAL-WORLD APPLICATIONS:\n• Computer circuits\n• Search engines\n• Database queries\n• Game logic\n• Security systems\n• Decision making\n• Digital electronics\n\nBOOLEAN ALGEBRA LAWS:\n• Identity: A AND 1 = A\n• Null: A AND 0 = 0\n• Idempotent: A AND A = A\n• Complement: A AND NOT A = 0\n• Commutative: A AND B = B AND A\n• Associative: (A AND B) AND C = A AND (B AND C)\n• Distributive: A AND (B OR C) = (A AND B) OR (A AND C)",
+        "section": "2",
+        "subsection": "2.4 Boolean logic",
+        "craigAndDaveVideoId": "I8s5CO7LW1k",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "logic-gates",
+        "title": "Logic gates and circuits",
+        "content": "Logic gates are the building blocks of digital circuits:\n\nBASIC LOGIC GATES:\n\n1. NOT GATE (Inverter):\n• Single input, single output\n• Reverses the input\n• Symbol: Triangle with circle\n\nTruth Table:\n| Input A | Output |\n|---------|--------|\n| 0       | 1      |\n| 1       | 0      |\n\n2. AND GATE:\n• Two inputs, one output\n• Output 1 only if BOTH inputs are 1\n• Symbol: D-shaped\n\nTruth Table:\n| A | B | Output |\n|---|---|--------|\n| 0 | 0 | 0      |\n| 0 | 1 | 0      |\n| 1 | 0 | 0      |\n| 1 | 1 | 1      |\n\n3. OR GATE:\n• Two inputs, one output\n• Output 1 if ANY input is 1\n• Symbol: Shield-shaped\n\nTruth Table:\n| A | B | Output |\n|---|---|--------|\n| 0 | 0 | 0      |\n| 0 | 1 | 1      |\n| 1 | 0 | 1      |\n| 1 | 1 | 1      |\n\n4. XOR GATE (Exclusive OR):\n• Two inputs, one output\n• Output 1 if inputs are DIFFERENT\n• Symbol: OR with extra curve\n\nTruth Table:\n| A | B | Output |\n|---|---|--------|\n| 0 | 0 | 0      |\n| 0 | 1 | 1      |\n| 1 | 0 | 1      |\n| 1 | 1 | 0      |\n\nCOMBINING GATES:\n\nNAND GATE (NOT AND):\n• AND followed by NOT\n• Most common in circuits\n\n| A | B | AND | NAND |\n|---|---|-----|------|\n| 0 | 0 | 0   | 1    |\n| 0 | 1 | 0   | 1    |\n| 1 | 0 | 0   | 1    |\n| 1 | 1 | 1   | 0    |\n\nNOR GATE (NOT OR):\n• OR followed by NOT\n\n| A | B | OR | NOR |\n|---|---|----|----- |\n| 0 | 0 | 0  | 1   |\n| 0 | 1 | 1  | 0   |\n| 1 | 0 | 1  | 0   |\n| 1 | 1 | 1  | 0   |\n\nCIRCUIT EXAMPLES:\n• Half adder: XOR + AND\n• Full adder: Multiple gates\n• Multiplexer: Selects inputs\n• Decoder: Binary to output\n\nPRACTICAL USES:\n• CPU arithmetic\n• Memory circuits\n• Control systems\n• Digital displays",
+        "section": "2",
+        "subsection": "2.4 Boolean logic",
+        "craigAndDaveVideoId": "UvI-AMAtrvE",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "truth-tables",
+        "title": "Truth tables",
+        "content": "Truth tables show all possible inputs and outputs for logic circuits:\n\nWHAT ARE TRUTH TABLES:\n• Show all input combinations\n• Display corresponding outputs\n• Systematic approach\n• Help design circuits\n• Verify logic expressions\n\nCREATING TRUTH TABLES:\n\n1. Count inputs (n)\n2. Calculate rows: 2^n\n3. List all combinations\n4. Calculate outputs\n\nEXAMPLE - 2 inputs:\n```\n2 inputs = 2^2 = 4 rows\nPattern: 00, 01, 10, 11\n```\n\nCOMPLEX EXAMPLE:\nExpression: (A AND B) OR (NOT C)\n\n| A | B | C | NOT C | A AND B | (A AND B) OR (NOT C) |\n|---|---|---|-------|---------|---------------------|\n| 0 | 0 | 0 | 1     | 0       | 1                   |\n| 0 | 0 | 1 | 0     | 0       | 0                   |\n| 0 | 1 | 0 | 1     | 0       | 1                   |\n| 0 | 1 | 1 | 0     | 0       | 0                   |\n| 1 | 0 | 0 | 1     | 0       | 1                   |\n| 1 | 0 | 1 | 0     | 0       | 0                   |\n| 1 | 1 | 0 | 1     | 1       | 1                   |\n| 1 | 1 | 1 | 0     | 1       | 1                   |\n\n3 INPUT EXAMPLE:\nExpression: A OR (B AND C)\n\n| A | B | C | B AND C | A OR (B AND C) |\n|---|---|---|---------|----------------|\n| 0 | 0 | 0 | 0       | 0              |\n| 0 | 0 | 1 | 0       | 0              |\n| 0 | 1 | 0 | 0       | 0              |\n| 0 | 1 | 1 | 1       | 1              |\n| 1 | 0 | 0 | 0       | 1              |\n| 1 | 0 | 1 | 0       | 1              |\n| 1 | 1 | 0 | 0       | 1              |\n| 1 | 1 | 1 | 1       | 1              |\n\nSIMPLIFYING WITH TRUTH TABLES:\n• Identify patterns\n• Find redundancies\n• Minimize gates needed\n• Karnaugh maps for complex cases\n\nAPPLICATIONS:\n• Circuit design\n• Debugging logic\n• Proving equivalence\n• Optimization\n• Documentation",
+        "section": "2",
+        "subsection": "2.4 Boolean logic",
+        "craigAndDaveVideoId": "kBA1HvNBAQI",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "logic-circuit-design",
+        "title": "Combining Boolean operators",
+        "content": "Complex logic circuits combine multiple gates to perform useful functions:\n\nCOMBINING GATES:\n• Output of one gate feeds another\n• Build complex functions\n• Order matters\n• Use parentheses in expressions\n\nEXAMPLE CIRCUITS:\n\n1. ALARM SYSTEM:\nAlarm = (Door OR Window) AND (NOT Override)\n\nSteps:\n• Check if door OR window open\n• Check override NOT active\n• AND these conditions\n\n2. VOTING SYSTEM:\nMajority = (A AND B) OR (B AND C) OR (A AND C)\n\nTruth table:\n| A | B | C | Output |\n|---|---|---|--------|\n| 0 | 0 | 0 | 0      |\n| 0 | 0 | 1 | 0      |\n| 0 | 1 | 0 | 0      |\n| 0 | 1 | 1 | 1      |\n| 1 | 0 | 0 | 0      |\n| 1 | 0 | 1 | 1      |\n| 1 | 1 | 0 | 1      |\n| 1 | 1 | 1 | 1      |\n\n3. CAR SAFETY:\nStart = Key AND (Clutch OR Automatic) AND NOT Handbrake\n\nBOOLEAN ALGEBRA SIMPLIFICATION:\n\nOriginal: (A AND B) OR (A AND NOT B)\nSimplified: A\n\nProof:\n| A | B | NOT B | A AND B | A AND NOT B | Result |\n|---|---|-------|---------|-------------|--------|\n| 0 | 0 | 1     | 0       | 0           | 0      |\n| 0 | 1 | 0     | 0       | 0           | 0      |\n| 1 | 0 | 1     | 0       | 1           | 1      |\n| 1 | 1 | 0     | 1       | 0           | 1      |\n\nDE MORGAN'S LAWS:\n• NOT (A AND B) = (NOT A) OR (NOT B)\n• NOT (A OR B) = (NOT A) AND (NOT B)\n\nPRACTICAL EXAMPLES:\n\n1. LIFT CONTROL:\n```\nMove = CallButton AND NOT Moving AND DoorClosed\n```\n\n2. GREENHOUSE:\n```\nHeater = (TempLow AND NOT DayTime) OR Emergency\nWater = (SoilDry OR TimerActive) AND NOT Raining\n```\n\n3. SECURITY LIGHT:\n```\nLight = (Motion AND Dark) OR Manual\n```\n\nDESIGN PROCESS:\n1. Identify inputs\n2. Define desired outputs\n3. Create truth table\n4. Derive boolean expression\n5. Simplify if possible\n6. Draw circuit diagram",
+        "section": "2",
+        "subsection": "2.4 Boolean logic",
+        "craigAndDaveVideoId": "vjAIQmbCIrs",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "programming-languages-characteristics",
+        "title": "Characteristics of programming languages",
+        "content": "Programming languages have different characteristics suited to different tasks:\n\nLEVELS OF PROGRAMMING LANGUAGES:\n\n1. LOW-LEVEL LANGUAGES:\n• Close to machine code\n• Hardware specific\n• Direct memory control\n• Fast execution\n• Harder to learn\n\nMachine Code:\n• Binary instructions (0s and 1s)\n• Directly executed by CPU\n• Example: 10110000 01100001\n• Not human readable\n• Processor specific\n\nAssembly Language:\n• Mnemonics for machine code\n• One-to-one correspondence\n• Example: MOV AL, 61h\n• Slightly more readable\n• Still processor specific\n\n2. HIGH-LEVEL LANGUAGES:\n• Closer to human language\n• Hardware independent\n• Easier to learn/use\n• Need translation\n• Examples: Python, Java, C++\n\nCharacteristics:\n• English-like syntax\n• Abstraction from hardware\n• Portable between systems\n• Built-in functions\n• Automatic memory management\n\nCOMPARISON:\n\n| Feature | Low-Level | High-Level |\n|---------|-----------|------------|\n| Speed | Very fast | Slower |\n| Portability | None | High |\n| Ease of use | Difficult | Easy |\n| Memory control | Direct | Automatic |\n| Development time | Long | Short |\n| Debugging | Hard | Easier |\n\nCHOOSING LANGUAGES:\n\nLow-level used for:\n• Operating systems\n• Device drivers\n• Embedded systems\n• Real-time systems\n• Performance critical\n\nHigh-level used for:\n• Applications\n• Web development\n• Data analysis\n• Games\n• Business software\n\nEXAMPLE - Adding two numbers:\n\nMachine Code:\n```\n10110000 00000101\n00000100 00000011\n```\n\nAssembly:\n```\nMOV AL, 5\nADD AL, 3\n```\n\nHigh-level (Python):\n```python\nresult = 5 + 3\n```\n\nADVANTAGES/DISADVANTAGES:\n\nLow-level advantages:\n• Maximum performance\n• Minimal memory use\n• Hardware control\n• Predictable timing\n\nLow-level disadvantages:\n• Difficult to learn\n• Time consuming\n• Error prone\n• Not portable\n\nHigh-level advantages:\n• Easy to learn\n• Quick development\n• Portable code\n• Many libraries\n\nHigh-level disadvantages:\n• Slower execution\n• More memory needed\n• Less hardware control\n• Need compiler/interpreter",
+        "section": "2",
+        "subsection": "2.5 Programming languages and Integrated Development Environments",
+        "craigAndDaveVideoId": "Z11Kq2_lQjQ",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "purpose-of-translators",
+        "title": "Purpose of translators",
+        "content": "Translators convert code from one language to another, typically high-level to machine code:\n\nWHY TRANSLATORS NEEDED:\n• CPUs only understand machine code\n• Humans write in high-level languages\n• Translation bridges the gap\n• Makes programming practical\n• Enables portability\n\nTYPES OF TRANSLATORS:\n\n1. ASSEMBLERS:\n• Translate assembly to machine code\n• One-to-one translation\n• Platform specific\n• Produces object code\n• Fast translation\n\nProcess:\n```\nAssembly Code → Assembler → Machine Code\nMOV AL, 5     →           → 10110000 00000101\n```\n\n2. COMPILERS:\n• Translate entire program at once\n• High-level to machine code\n• Create executable file\n• Check for errors first\n• Optimise code\n\nCharacteristics:\n• Translate before execution\n• Find all syntax errors\n• Produce fast programs\n• Source code not needed to run\n• Examples: C, C++, Swift\n\nProcess:\n```\nSource Code → Compiler → Object Code → Linker → Executable\n```\n\n3. INTERPRETERS:\n• Translate line by line\n• Execute immediately\n• No executable produced\n• Stop at first error\n• Source code needed\n\nCharacteristics:\n• Slower execution\n• Easier debugging\n• Platform independent\n• Immediate feedback\n• Examples: Python, JavaScript\n\nProcess:\n```\nSource Code → Interpreter → Direct Execution\n(line by line)\n```\n\nCOMPARISON:\n\n| Feature | Compiler | Interpreter |\n|---------|----------|-------------|\n| Translation | All at once | Line by line |\n| Speed | Fast execution | Slow execution |\n| Errors | Shows all | Stops at first |\n| Output | Executable | No file |\n| Distribution | .exe file | Source code |\n| Memory | More efficient | Less efficient |\n\nHYBRID APPROACHES:\n\nBytecode (Java):\n```\nJava Source → Compiler → Bytecode → JVM Interpreter → Execution\n```\n\nJust-In-Time (JIT):\n• Compile frequently used parts\n• Interpret the rest\n• Balance of speed and flexibility\n\nCHOOSING TRANSLATORS:\n\nCompiler best for:\n• Finished products\n• Performance critical\n• Commercial software\n• Protecting source code\n\nInterpreter best for:\n• Development/testing\n• Learning programming\n• Cross-platform code\n• Scripts and automation",
+        "section": "2",
+        "subsection": "2.5 Programming languages and Integrated Development Environments",
+        "craigAndDaveVideoId": "A8EfKwqJ3f0",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "ide-tools",
+        "title": "IDE common tools",
+        "content": "Integrated Development Environments (IDEs) provide tools to help programmers write code efficiently:\n\nWHAT IS AN IDE:\n• All-in-one programming environment\n• Combines multiple tools\n• Increases productivity\n• Reduces errors\n• Examples: PyCharm, Visual Studio, Eclipse\n\nCOMMON IDE FEATURES:\n\n1. CODE EDITOR:\n• Syntax highlighting\n• Auto-indentation\n• Code folding\n• Multiple file tabs\n• Find and replace\n\nSyntax Highlighting:\n```python\n# Comments in green\ndef calculate_area(radius):  # Keywords in blue\n    PI = 3.14159  # Constants in caps\n    area = PI * radius ** 2  # Variables in black\n    return area  # Keywords highlighted\n```\n\n2. AUTO-COMPLETION:\n• Suggests code as you type\n• Shows available methods\n• Parameter hints\n• Reduces typing errors\n• Speeds up coding\n\nExample:\n```python\nmy_list.\n# IDE shows: append(), clear(), copy(), etc.\n```\n\n3. ERROR DIAGNOSTICS:\n• Underlines errors\n• Real-time checking\n• Error descriptions\n• Quick fixes suggested\n• Warning indicators\n\nTypes shown:\n• Syntax errors (red)\n• Warnings (yellow)\n• Information (blue)\n\n4. DEBUGGER:\n• Set breakpoints\n• Step through code\n• Watch variables\n• Call stack view\n• Conditional breaks\n\nDebugger features:\n• Run to cursor\n• Step over/into/out\n• Variable inspection\n• Expression evaluation\n\n5. COMPILER/INTERPRETER:\n• Built-in translation\n• One-click run\n• Error reporting\n• Output window\n• Build management\n\n6. PROJECT MANAGEMENT:\n• File organization\n• Directory structure\n• Version control\n• Search across files\n• Dependencies\n\nADDITIONAL FEATURES:\n\n1. Code Templates:\n```python\n# Type 'for' and press Tab\nfor i in range():\n    pass\n```\n\n2. Refactoring:\n• Rename variables\n• Extract methods\n• Optimize imports\n• Format code\n\n3. Documentation:\n• Inline help\n• API documentation\n• Tooltips\n• Quick documentation\n\n4. Version Control:\n• Git integration\n• Commit history\n• Diff viewer\n• Branch management\n\nBENEFITS OF IDEs:\n• Faster development\n• Fewer errors\n• Better organization\n• Learning support\n• Professional tools\n\nPOPULAR IDEs:\n• Python: PyCharm, VS Code\n• Java: IntelliJ, Eclipse\n• C++: Visual Studio\n• Web: WebStorm, VS Code\n• Mobile: Android Studio, Xcode",
+        "section": "2",
+        "subsection": "2.5 Programming languages and Integrated Development Environments",
+        "craigAndDaveVideoId": "oQmxAwI8lMo",
+        "notionPageUrl": ""
+    },
+    {
+        "slug": "runtime-environment",
+        "title": "Runtime environments",
+        "content": "Runtime environments provide the necessary components for programs to execute:\n\nWHAT IS A RUNTIME ENVIRONMENT:\n• Platform for executing programs\n• Provides necessary resources\n• Manages program execution\n• Handles system interaction\n• Bridge between program and OS\n\nCOMPONENTS:\n\n1. MEMORY MANAGEMENT:\n• Allocates RAM to programs\n• Garbage collection\n• Stack and heap management\n• Memory protection\n• Resource cleanup\n\n2. INPUT/OUTPUT HANDLING:\n• Keyboard input\n• Screen output\n• File operations\n• Network access\n• Device interaction\n\n3. ERROR HANDLING:\n• Exception management\n• Error reporting\n• Recovery mechanisms\n• Debugging support\n• Crash protection\n\n4. LIBRARIES:\n• Standard functions\n• Common operations\n• System calls\n• API access\n• Third-party modules\n\nTYPES OF RUNTIME ENVIRONMENTS:\n\n1. NATIVE RUNTIME:\n• Direct OS execution\n• Compiled languages\n• Minimal overhead\n• Platform specific\n• Examples: C, C++ programs\n\n2. VIRTUAL MACHINES:\n• Java Virtual Machine (JVM)\n• .NET Framework\n• Platform independent\n• Bytecode execution\n• Additional layer\n\nJava Example:\n```\nJava Code → Bytecode → JVM → OS → Hardware\n```\n\n3. INTERPRETED RUNTIME:\n• Python interpreter\n• JavaScript engine\n• Direct source execution\n• Cross-platform\n• Runtime translation\n\n4. WEB BROWSER:\n• JavaScript runtime\n• DOM manipulation\n• Security sandbox\n• API access\n• Resource limits\n\nRUNTIME SERVICES:\n\n1. Dynamic Linking:\n• Load libraries as needed\n• Shared libraries\n• Reduces program size\n• Updates without recompile\n\n2. Security:\n• Sandboxing\n• Permission control\n• Resource limits\n• Access restrictions\n\n3. Threading:\n• Multi-threading support\n• Process management\n• Synchronization\n• Parallel execution\n\n4. Networking:\n• Socket management\n• Protocol handling\n• Connection pooling\n• Data serialization\n\nEXAMPLES:\n\nPython Runtime:\n```python\n# Runtime provides:\n# - Memory for variables\n# - import system\n# - Built-in functions\n# - Exception handling\nimport math\nresult = math.sqrt(16)\nprint(result)\n```\n\nJavaScript in Browser:\n```javascript\n// Runtime provides:\n// - DOM access\n// - Event handling\n// - AJAX calls\n// - Security model\ndocument.getElementById('button').onclick = function() {\n    alert('Clicked!');\n}\n```\n\nIMPORTANCE:\n• Abstraction from hardware\n• Consistent behavior\n• Resource management\n• Security enforcement\n• Cross-platform capability",
+        "section": "2",
+        "subsection": "2.5 Programming languages and Integrated Development Environments",
+        "craigAndDaveVideoId": "qhToHvQ2Xkc",
+        "notionPageUrl": ""
     }
 ]
